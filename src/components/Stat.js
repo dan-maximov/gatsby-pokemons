@@ -14,7 +14,7 @@ const Text = styled.p`
 
 const Dots = styled.div`
   flex: 1;
-  height: 100%;
+  height: 18px;
   margin: 0 4px;
   margin-top: -6px;
   border-bottom: 2px dotted #000;

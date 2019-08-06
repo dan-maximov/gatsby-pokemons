@@ -5,16 +5,32 @@ import { graphql } from 'gatsby';
 import Stat from '../components/Stat';
 import DamageDifference from '../components/DamageDifference';
 
-const Wrapper = styled.div`
+const Head = styled.div`
   padding-top: 16px;
   display: flex;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px 16px 0;
+  }
+`;
+
+const ImageWrapper = styled.div`
+  display: flex;
+  @media (max-width: 800px) {
+    justify-content: center;
+  }
 `;
 
 const Details = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 100%;
   margin-left: 32px;
+
+  @media (max-width: 800px) {
+    margin-left: 0;
+    margin-top: 32px;
+  }
 `;
 
 const Name = styled.h1`
@@ -24,43 +40,43 @@ const Name = styled.h1`
 const Classification = styled.h2`
   font-size: 1em;
   margin: 0;
-`;
-
-const Seporator = styled.div`
-  height: 16px;
+  margin-bottom: 16px;
 `;
 
 const PokemonPage = ({ pokemon }) => (
-  <Wrapper>
-    <img src={pokemon.image} alt={pokemon.name} />
-    <Details>
-      <Name>{`${pokemon.name} - ${pokemon.number}`}</Name>
-      <Classification>{pokemon.classification}</Classification>
-      <Seporator />
-      <Stat
-        title="Height"
-        value={`${pokemon.height.minimum} - ${pokemon.height.maximum}`}
-      />
-      <Stat
-        title="Weight"
-        value={`${pokemon.weight.minimum} - ${pokemon.weight.maximum}`}
-      />
-      <Stat
-        title="Damage"
-        value={<DamageDifference attacks={pokemon.attacks} />}
-      />
-      <Stat
-        title="Flee Rate"
-        value={`${Math.floor(pokemon.fleeRate * 100)}%`}
-      />
-      <Stat title="Max CP" value={`${pokemon.maxCP} CP`} />
-      <Stat title="Max HP" value={`${pokemon.maxHP} HP`} />
-      <Stat
-        title="Evolution Requirement"
-        value={`${pokemon.evolutionRequirements.amount} ${pokemon.evolutionRequirements.name}`}
-      />
-    </Details>
-  </Wrapper>
+  <React.Fragment>
+    <Head>
+      <ImageWrapper>
+        <img src={pokemon.image} alt={pokemon.name} />
+      </ImageWrapper>
+      <Details>
+        <Name>{`${pokemon.name} - ${pokemon.number}`}</Name>
+        <Classification>{pokemon.classification}</Classification>
+        <Stat
+          title="Height"
+          value={`${pokemon.height.minimum} - ${pokemon.height.maximum}`}
+        />
+        <Stat
+          title="Weight"
+          value={`${pokemon.weight.minimum} - ${pokemon.weight.maximum}`}
+        />
+        <Stat
+          title="Damage"
+          value={<DamageDifference attacks={pokemon.attacks} />}
+        />
+        <Stat
+          title="Flee Rate"
+          value={`${Math.floor(pokemon.fleeRate * 100)}%`}
+        />
+        <Stat title="Max CP" value={`${pokemon.maxCP} CP`} />
+        <Stat title="Max HP" value={`${pokemon.maxHP} HP`} />
+        <Stat
+          title="Evolution Requirement"
+          value={`${pokemon.evolutionRequirements.amount} ${pokemon.evolutionRequirements.name}`}
+        />
+      </Details>
+    </Head>
+  </React.Fragment>
 );
 
 PokemonPage.propTypes = {
