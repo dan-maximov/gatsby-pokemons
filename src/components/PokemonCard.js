@@ -68,8 +68,11 @@ const PokemonCard = ({ data }) => (
       <Image src={data.image} alt={data.name} />
     </ImageWrapper>
     <Title>
-      <p>{data.name}</p>
+      <p>{`${data.name} - ${data.number}`}</p>
       <div>
+        <span role="img" aria-label="fist">
+          👊
+        </span>
         <DamageDifference attacks={data.attacks} />
       </div>
     </Title>
@@ -80,16 +83,13 @@ PokemonCard.propTypes = {
   data: PropTypes.objectOf({
     id: PropTypes.string,
     name: PropTypes.string,
+    number: PropTypes.string,
     image: PropTypes.string,
     attacks: PropTypes.objectOf({
       fast: PropTypes.objectOf({
-        name: PropTypes.string,
-        type: PropTypes.string,
         damage: PropTypes.number,
       }),
       special: PropTypes.objectOf({
-        name: PropTypes.string,
-        type: PropTypes.string,
         damage: PropTypes.number,
       }),
     }),
@@ -100,6 +100,7 @@ export const query = graphql`
   fragment PokemonCard on PokeAPI_Pokemon {
     id
     name
+    number
     image
     ...AttacksDifference
   }

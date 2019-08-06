@@ -1,17 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-
 import { damageDiff } from '../utils/format';
 
-const DamageDifference = ({ attacks }) => (
-  <React.Fragment>
-    <span role="img" aria-label="fist">
-      👊
-    </span>
-    {damageDiff(attacks)}
-  </React.Fragment>
-);
+const DamageDifference = ({ attacks }) => damageDiff(attacks);
 
 DamageDifference.propTypes = {
   attacks: PropTypes.objectOf({
