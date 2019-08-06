@@ -1,5 +1,5 @@
-const path = require("path")
-const POKEMONS_QUANTITY = require("./src/pokemonsQuantity")
+const path = require('path');
+const POKEMONS_QUANTITY = require('./src/pokemonsQuantity');
 
 exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
@@ -10,15 +10,15 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
     }
-  `)
+  `);
 
   result.data.pokeApi.pokemons.forEach(({ id }) => {
     actions.createPage({
       path: id,
-      component: path.resolve("./src/templates/pokemon.js"),
+      component: path.resolve('./src/templates/pokemon.js'),
       context: {
         slug: id,
       },
-    })
-  })
-}
+    });
+  });
+};

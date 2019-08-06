@@ -1,14 +1,14 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { graphql } from "gatsby"
-import Layout from "../components/Layout"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
 
 const PokemonPage = ({ data }) => (
   <Layout>
     <p>{data.pokeApi.pokemon.name}</p>
     <p>{data.pokeApi.pokemon.classification}</p>
   </Layout>
-)
+);
 
 PokemonPage.propTypes = {
   data: PropTypes.objectOf({
@@ -19,7 +19,7 @@ PokemonPage.propTypes = {
       }),
     }),
   }).isRequired,
-}
+};
 
 export const query = graphql`
   query($slug: String!) {
@@ -30,6 +30,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default PokemonPage
+export default PokemonPage;

@@ -1,1 +1,1 @@
-module.exports = process.env.LIMITED ? 20 : 150
+module.exports = process.env.LIMITED ? 20 : 150;
