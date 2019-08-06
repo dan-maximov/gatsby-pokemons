@@ -1,17 +1,33 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const query = graphql`
+  query {
+    pokeApi {
+      pokemons(first: 150) {
+        name
+        image
+      }
+    }
+  }
+`
+
+const IndexPage = () => {
+  const data = useStaticQuery(query)
+  return (
+    <Layout>
+      <SEO title="Home" />
+      {data.pokeApi.pokemons.map(({ name, image }) => (
+        <Link to={name.toLowerCase()}>
+          <img src={image} alt={name} />
+          <p>{name}</p>
+        </Link>
+      ))}
+    </Layout>
+  )
+}
 
 export default IndexPage
