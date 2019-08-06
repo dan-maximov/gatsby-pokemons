@@ -6,18 +6,18 @@ exports.createPages = async ({ graphql, actions }) => {
     query {
       pokeApi {
         pokemons(first: ${POKEMONS_QUANTITY}) {
-          name
+          id
         }
       }
     }
   `)
 
-  result.data.pokeApi.pokemons.forEach(({ name }) => {
+  result.data.pokeApi.pokemons.forEach(({ id }) => {
     actions.createPage({
-      path: name.toLowerCase(),
+      path: id,
       component: path.resolve("./src/templates/pokemon.js"),
       context: {
-        slug: name,
+        slug: id,
       },
     })
   })

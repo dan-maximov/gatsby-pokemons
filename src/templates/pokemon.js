@@ -24,7 +24,7 @@ PokemonPage.propTypes = {
 export const query = graphql`
   query($slug: String!) {
     pokeApi {
-      pokemon(name: $slug) {
+      pokemon(id: $slug) {
         name
         classification
       }

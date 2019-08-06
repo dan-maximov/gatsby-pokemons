@@ -8,6 +8,7 @@ const query = graphql`
   query {
     pokeApi {
       pokemons(first: 150) {
+        id
         name
         image
       }
@@ -20,8 +21,8 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      {data.pokeApi.pokemons.map(({ name, image }) => (
-        <Link to={name.toLowerCase()}>
+      {data.pokeApi.pokemons.map(({ id, name, image }) => (
+        <Link to={id}>
           <img src={image} alt={name} />
           <p>{name}</p>
         </Link>
