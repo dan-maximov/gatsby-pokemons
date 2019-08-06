@@ -4,8 +4,12 @@ import { Link } from 'gatsby';
 import pika from './pikachu.png';
 
 const Wrapper = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #f44336;
-  margin-bottom: 1.45rem;
+  z-index: 99;
 `;
 
 const Inner = styled.div`
