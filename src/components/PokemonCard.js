@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import styled, { css } from 'styled-components';
+import DamageDifference from './DamageDifference';
 
 const widthStyle = css`
   width: 23%;
@@ -21,6 +22,10 @@ const Card = styled(Link)`
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
   margin-bottom: 10px;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -39,8 +44,13 @@ const Image = styled.img`
   transform: translate(-50%, -50%);
 `;
 
-const Title = styled.p`
-  text-align: center;
+const Title = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 6px;
+  p {
+    margin: 0;
+  }
 `;
 
 const PokemonCard = ({ data }) => (
@@ -48,14 +58,32 @@ const PokemonCard = ({ data }) => (
     <ImageWrapper>
       <Image src={data.image} alt={data.name} />
     </ImageWrapper>
-    <Title>{data.name}</Title>
+    <Title>
+      <p>{data.name}</p>
+      <div>
+        <DamageDifference attacks={data.attacks} />
+      </div>
+    </Title>
   </Card>
 );
 
 PokemonCard.propTypes = {
   data: PropTypes.objectOf({
+    id: PropTypes.string,
     name: PropTypes.string,
     image: PropTypes.string,
+    attacks: PropTypes.objectOf({
+      fast: PropTypes.objectOf({
+        name: PropTypes.string,
+        type: PropTypes.string,
+        damage: PropTypes.number,
+      }),
+      special: PropTypes.objectOf({
+        name: PropTypes.string,
+        type: PropTypes.string,
+        damage: PropTypes.number,
+      }),
+    }),
   }).isRequired,
 };
 
@@ -64,6 +92,7 @@ export const query = graphql`
     id
     name
     image
+    ...AttacksDifference
   }
 `;
 
