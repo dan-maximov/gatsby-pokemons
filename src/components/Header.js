@@ -1,44 +1,48 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import pika from './pikachu.png';
 
 const Wrapper = styled.header`
-  background: rebeccapurple;
+  background-color: #f44336;
   margin-bottom: 1.45rem;
 `;
 
 const Inner = styled.div`
+  display: flex;
+  align-items: center;
   margin: 0 auto;
-  max-width: 960;
-  padding: 1.45rem 1.0875rem;
+  max-width: 960px;
+  padding: 6px;
 `;
 
-const Heading = styled.h1`
-  margin: 0;
+const Logo = styled.img`
+  height: 36px;
+  width: auto;
 `;
 
 const LinkToHome = styled(Link)`
-  color: white;
+  display: flex;
+  align-items: center;
   text-decoration: none;
+  font-size: 24px;
+  color: white;
 `;
 
-const Header = ({ siteTitle }) => (
+const LinkText = styled.span`
+  margin-top: 2px;
+  margin-left: 12px;
+`;
+
+const Header = () => (
   <Wrapper>
     <Inner>
-      <Heading>
-        <LinkToHome to="/">{siteTitle}</LinkToHome>
-      </Heading>
+      <LinkToHome to="/">
+        <Logo src={pika} alt="site logo" />
+        <LinkText>PokeList</LinkText>
+      </LinkToHome>
     </Inner>
   </Wrapper>
 );
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: '',
-};
 
 export default Header;
