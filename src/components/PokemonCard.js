@@ -30,6 +30,7 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   position: absolute;
+  /* TODO: ie compatible */
   object-fit: scale-down;
   height: 90%;
   width: 90%;
