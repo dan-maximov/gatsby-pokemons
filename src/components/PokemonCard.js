@@ -6,6 +6,14 @@ import DamageDifference from './DamageDifference';
 
 const widthStyle = css`
   width: 23%;
+
+  @media (max-width: 960px) {
+    width: 32%;
+  }
+
+  @media (max-width: 666px) {
+    width: 48%;
+  }
 `;
 
 export const CardPlaceholder = styled.div`
@@ -15,6 +23,7 @@ export const CardPlaceholder = styled.div`
 const Card = styled(Link)`
   text-decoration: none;
   color: #000;
+  border-radius: 8px;
   display: block;
   background: #fff;
   ${widthStyle}
