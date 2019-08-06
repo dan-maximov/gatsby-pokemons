@@ -2,8 +2,6 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Pokemon from '../components/PokemonCard';
-
-import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 
 const query = graphql`
@@ -19,12 +17,12 @@ const query = graphql`
 const IndexPage = () => {
   const data = useStaticQuery(query);
   return (
-    <Layout>
+    <>
       <SEO title="Home" />
       {data.pokeApi.pokemons.map(pokemon => (
         <Pokemon data={pokemon} />
       ))}
-    </Layout>
+    </>
   );
 };
 
