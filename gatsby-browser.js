@@ -1,7 +1,11 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+/* eslint-disable react/prop-types */
+const React = require('react');
+const { Normalize } = require('styled-normalize');
 
-// You can delete this file if you're not using it
+// eslint-disable-next-line react/prop-types
+exports.wrapRootElement = ({ element }) => (
+  <React.Fragment>
+    <Normalize />
+    {element}
+  </React.Fragment>
+);
