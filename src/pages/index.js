@@ -1,8 +1,17 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
 
-import Pokemon from '../components/PokemonCard';
+import Pokemon, { CardPlaceholder } from '../components/PokemonCard';
 import SEO from '../components/Seo';
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
+const placeholdersArray = new Array(4).fill().map((_, i) => i + 1234);
 
 const query = graphql`
   query {
@@ -17,12 +26,15 @@ const query = graphql`
 const IndexPage = () => {
   const data = useStaticQuery(query);
   return (
-    <>
+    <Wrapper>
       <SEO title="Home" />
       {data.pokeApi.pokemons.map(pokemon => (
         <Pokemon data={pokemon} />
       ))}
-    </>
+      {placeholdersArray.map(i => (
+        <CardPlaceholder key={i} />
+      ))}
+    </Wrapper>
   );
 };
 
