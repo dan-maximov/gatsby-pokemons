@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Pokemons list built with gatsby :)',
+    title: 'PokeList',
     description: 'Pokemons list built with gatsby and graphql-pokemon endpoint',
     author: '@meatspincom',
   },
