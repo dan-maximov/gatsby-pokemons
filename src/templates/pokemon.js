@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
 
 const PokemonPage = ({ data }) => (
-  <Layout>
+  <>
     <p>{data.pokeApi.pokemon.name}</p>
     <p>{data.pokeApi.pokemon.classification}</p>
-  </Layout>
+  </>
 );
 
 PokemonPage.propTypes = {
