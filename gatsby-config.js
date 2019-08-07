@@ -25,5 +25,6 @@ module.exports = {
         url: 'https://graphql-pokemon.now.sh/',
       },
     },
+    'gatsby-plugin-styled-components',
   ],
 };

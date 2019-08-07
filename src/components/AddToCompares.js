@@ -6,6 +6,7 @@ import { FaToggleOff, FaToggleOn } from 'react-icons/fa';
 import { connect } from 'unistore/react';
 import { createStructuredSelector } from 'reselect';
 import { actions, selectors } from '../store';
+import useAvoidHydrate from '../hooks/useAvoidHydrate';
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,6 +22,12 @@ const Text = styled.span`
 `;
 
 const AddToCompares = ({ add, del, id, inCompares }) => {
+  const client = useAvoidHydrate();
+
+  if (!client) {
+    return null;
+  }
+
   const text = inCompares ? 'In Compares' : 'Add to Compares';
   const action = inCompares ? del : add;
   const Icon = inCompares ? FaToggleOn : FaToggleOff;

@@ -6,6 +6,7 @@ import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import { connect } from 'unistore/react';
 import { createStructuredSelector } from 'reselect';
 import { actions, selectors } from '../store';
+import useAvoidHydrate from '../hooks/useAvoidHydrate';
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,6 +24,12 @@ const Text = styled.span`
 `;
 
 const AddToFavorites = ({ add, del, id, inFavorites }) => {
+  const client = useAvoidHydrate();
+
+  if (!client) {
+    return null;
+  }
+
   const text = inFavorites ? 'In favorites' : 'Add to favorites';
   const action = inFavorites ? del : add;
   const Icon = inFavorites ? FaHeart : FaRegHeart;
