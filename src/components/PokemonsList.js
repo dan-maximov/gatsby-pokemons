@@ -4,6 +4,14 @@ import styled from 'styled-components';
 import Pokemon, { CardPlaceholder, pokeCardPropTypes } from './PokemonCard';
 
 const Wrapper = styled.div`
+  padding-top: 0.5em;
+
+  & > h1 {
+    margin: 0 0 0.5em;
+  }
+`;
+
+const Inner = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -11,23 +19,29 @@ const Wrapper = styled.div`
 
 const placeholdersArray = new Array(4).fill().map((_, i) => i + 1234);
 
-const PokemonsList = ({ pokemons, EmptyState }) => {
+const PokemonsList = ({ pokemons, EmptyState, title }) => {
   if (pokemons.length === 0) {
     return (
       <Wrapper>
-        <EmptyState />
+        {title}
+        <Inner>
+          <EmptyState />
+        </Inner>
       </Wrapper>
     );
   }
 
   return (
     <Wrapper>
-      {pokemons.map(pokemon => (
-        <Pokemon key={pokemon.id} data={pokemon} />
-      ))}
-      {placeholdersArray.map(i => (
-        <CardPlaceholder key={i} />
-      ))}
+      {title}
+      <Inner>
+        {pokemons.map(pokemon => (
+          <Pokemon key={pokemon.id} data={pokemon} />
+        ))}
+        {placeholdersArray.map(i => (
+          <CardPlaceholder key={i} />
+        ))}
+      </Inner>
     </Wrapper>
   );
 };
@@ -35,10 +49,12 @@ const PokemonsList = ({ pokemons, EmptyState }) => {
 PokemonsList.propTypes = {
   pokemons: PropTypes.arrayOf(PropTypes.shape(pokeCardPropTypes)).isRequired,
   EmptyState: PropTypes.oneOfType([PropTypes.func, PropTypes.symbol]),
+  title: PropTypes.node,
 };
 
 PokemonsList.defaultProps = {
   EmptyState: React.Fragment,
+  title: undefined,
 };
 
 export default PokemonsList;

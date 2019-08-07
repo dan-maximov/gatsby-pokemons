@@ -23,7 +23,7 @@ const Favorites = ({ favorite }) => {
   return (
     <React.Fragment>
       <SEO title="Favorites" />
-      <PokemonsList pokemons={pokemons} EmptyState={EmptyFavorites} />
+      <PokemonsList pokemons={pokemons} EmptyState={EmptyFavorites} title={<h1>Favorites</h1>} />
     </React.Fragment>
   );
 };
