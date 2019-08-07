@@ -44,7 +44,7 @@ const LinkToFavorites = styled(Link)`
 `;
 
 const LinkToCompares = styled(Link)`
-  padding: 0 0.5em;
+  padding: 0 8px;
 `;
 
 const Header = () => (

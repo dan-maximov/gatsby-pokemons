@@ -6,7 +6,7 @@ import { FaChevronDown } from 'react-icons/fa';
 const Header = styled.label`
   display: flex;
   justify-content: space-between;
-  padding: 1em;
+  padding: 16px;
   border-top: #bdbdbd solid 1px;
   cursor: pointer;
 `;
@@ -17,7 +17,7 @@ const Title = styled.p`
 
 const Content = styled.div`
   display: none;
-  padding: 0 1em 1em;
+  padding: 0 16px 16px;
 `;
 
 const Chevron = styled(FaChevronDown)`

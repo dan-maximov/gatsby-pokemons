@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import Pokemon, { CardPlaceholder, pokeCardPropTypes } from './PokemonCard';
 
 const Wrapper = styled.div`
-  padding-top: 0.5em;
+  padding-top: 8px;
 
   & > h1 {
-    margin: 0 0 0.5em;
+    margin: 0 0 16px;
   }
 `;
 

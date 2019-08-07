@@ -47,7 +47,7 @@ const Details = styled.div`
 `;
 
 const Classification = styled.h2`
-  font-size: 1em;
+  font-size: 16px;
   margin-bottom: 16px;
 `;
 

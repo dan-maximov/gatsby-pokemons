@@ -7,11 +7,11 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1.5em 0;
+  margin: 24px 0;
 `;
 
 const Type = styled.p`
-  font-size: 0.8em;
+  font-size: 13px;
   color: #9e9e9e;
 `;
 

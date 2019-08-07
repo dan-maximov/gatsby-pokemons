@@ -78,12 +78,12 @@ const HeadCard = styled(Link)`
 `;
 
 const StatTitle = styled.p`
-  font-size: 0.8em;
+  font-size: 13px;
   color: #9e9e9e;
 `;
 
 const RowWrapper = styled.div`
-  margin: 0.5em 0;
+  margin: 8px 0;
 `;
 
 const Row = styled.div`
@@ -96,7 +96,7 @@ const Cell = styled.div`
 `;
 
 const Title = styled.h2`
-  padding-bottom: 0.5em;
+  padding-bottom: 12px;
 `;
 
 const Compares = ({ compare }) => {
