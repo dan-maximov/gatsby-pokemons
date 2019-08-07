@@ -5,6 +5,7 @@ import Type from './Type';
 
 const Wrapper = styled.div`
   display: flex;
+  overflow-x: auto;
 
   & > div {
     :not(:first-child) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import { FaHeart } from 'react-icons/fa';
+import { FaHeart, FaCalendarAlt } from 'react-icons/fa';
 import pika from './pikachu.png';
 
 const Wrapper = styled.header`
@@ -43,6 +43,10 @@ const LinkToFavorites = styled(Link)`
   margin-left: auto;
 `;
 
+const LinkToCompares = styled(Link)`
+  padding: 0 0.5em;
+`;
+
 const Header = () => (
   <Wrapper>
     <Inner>
@@ -53,6 +57,9 @@ const Header = () => (
       <LinkToFavorites to="/favorites">
         <FaHeart color="#fff" size="18px" />
       </LinkToFavorites>
+      <LinkToCompares to="/compares">
+        <FaCalendarAlt color="#fff" size="18px" />
+      </LinkToCompares>
     </Inner>
   </Wrapper>
 );

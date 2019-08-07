@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { FaRegHeart, FaHeart } from 'react-icons/fa';
+import { FaToggleOff, FaToggleOn } from 'react-icons/fa';
 
 import { connect } from 'unistore/react';
 import { createStructuredSelector } from 'reselect';
@@ -9,11 +9,9 @@ import { actions, selectors } from '../store';
 
 const Wrapper = styled.div`
   display: flex;
-  width: 128px;
   height: 18px;
   align-items: center;
   padding: 2px 6px;
-  padding-left: 0;
 
   cursor: pointer;
 `;
@@ -22,25 +20,25 @@ const Text = styled.span`
   margin-left: 6px;
 `;
 
-const AddToFavorites = ({ add, del, id, inFavorites }) => {
-  const text = inFavorites ? 'In favorites' : 'Add to favorites';
-  const action = inFavorites ? del : add;
-  const Icon = inFavorites ? FaHeart : FaRegHeart;
+const AddToCompares = ({ add, del, id, inCompares }) => {
+  const text = inCompares ? 'In Compares' : 'Add to Compares';
+  const action = inCompares ? del : add;
+  const Icon = inCompares ? FaToggleOn : FaToggleOff;
   return (
     <Wrapper onClick={() => action(id)}>
-      <Icon color="#d50000" />
+      <Icon color="#2962FF" />
       <Text>{text}</Text>
     </Wrapper>
   );
 };
 
 const selector = createStructuredSelector({
-  inFavorites: selectors.inFavorites,
+  inCompares: selectors.inCompares,
 });
 
 const action = {
-  add: actions.addToFavorites,
-  del: actions.deleteFromFavorites,
+  add: actions.addToCompares,
+  del: actions.deleteFromCompares,
 };
 
 const enhance = connect(
@@ -48,11 +46,11 @@ const enhance = connect(
   action,
 );
 
-AddToFavorites.propTypes = {
+AddToCompares.propTypes = {
   add: PropTypes.func.isRequired,
   del: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
-  inFavorites: PropTypes.bool.isRequired,
+  inCompares: PropTypes.bool.isRequired,
 };
 
-export default enhance(AddToFavorites);
+export default enhance(AddToCompares);

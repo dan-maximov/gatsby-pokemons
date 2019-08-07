@@ -9,6 +9,7 @@ import TypesList from '../components/TypesList';
 import { attack } from '../components/Attack';
 import AttackList from '../components/AttackList';
 import AddToFavorites from '../components/AddToFavorites';
+import AddToCompares from '../components/AddToCompares';
 
 const Head = styled.div`
   padding-top: 16px;
@@ -55,6 +56,11 @@ const Classification = styled.h2`
   margin-bottom: 16px;
 `;
 
+const Buttons = styled.div`
+  display: flex;
+  margin-top: 1em;
+`;
+
 const PokemonPage = ({ pokemon }) => (
   <React.Fragment>
     <Head>
@@ -78,7 +84,10 @@ const PokemonPage = ({ pokemon }) => (
               : '一'
           }
         />
-        <AddToFavorites id={pokemon.id} />
+        <Buttons>
+          <AddToFavorites id={pokemon.id} />
+          <AddToCompares id={pokemon.id} />
+        </Buttons>
       </Details>
     </Head>
     <Footer>
