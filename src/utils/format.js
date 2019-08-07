@@ -17,10 +17,39 @@ const findEstDmgReducer = n => (previous, current) => {
   return Math.max(previous, current.damage);
 };
 
-const findEstDmg = (n, obj) =>
-  Object.values(obj).reduce(findEstDmgReducer(n), -1);
+const findEstDmg = (n, obj) => Object.values(obj).reduce(findEstDmgReducer(n), -1);
 
-export const damageDiff = o =>
-  `${findEstDmg(SMALLEST, o)} - ${findEstDmg(HIGHEST, o)}`;
+export const damageDiff = o => `${findEstDmg(SMALLEST, o)} - ${findEstDmg(HIGHEST, o)}`;
 
 export default undefined;
+
+export const comparesStats = [
+  {
+    title: 'Height',
+    extractor: ({ height }) => `${height.minimum} - ${height.maximum}`,
+  },
+  {
+    title: 'Weight',
+    extractor: ({ weight }) => `${weight.minimum} - ${weight.maximum}`,
+  },
+  {
+    title: 'Damage',
+    extractor: ({ attacks }) => damageDiff(attacks),
+  },
+  {
+    title: 'Flee Rate',
+    extractor: ({ fleeRate }) => fleeRate,
+  },
+  {
+    title: 'Max CP',
+    extractor: ({ maxCP }) => maxCP,
+  },
+  {
+    title: 'Max HP',
+    extractor: ({ maxHP }) => maxHP,
+  },
+  {
+    title: 'Classification',
+    extractor: ({ classification }) => classification,
+  },
+];
