@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import Stat from '../components/Stat';
 import DamageDifference from '../components/DamageDifference';
 import Accordeon from '../components/Accordeon';
-import Type from '../components/Type';
+import TypesList from '../components/TypesList';
 import { attack } from '../components/Attack';
 import AttackList from '../components/AttackList';
 import AddToFavorites from '../components/AddToFavorites';
@@ -55,16 +55,6 @@ const Classification = styled.h2`
   margin-bottom: 16px;
 `;
 
-const TypesList = styled.div`
-  display: flex;
-
-  & > div {
-    :not(:first-child) {
-      margin-left: 8px;
-    }
-  }
-`;
-
 const PokemonPage = ({ pokemon }) => (
   <React.Fragment>
     <Head>
@@ -93,18 +83,10 @@ const PokemonPage = ({ pokemon }) => (
     </Head>
     <Footer>
       <Accordeon title="Types">
-        <TypesList>
-          {pokemon.types.map(t => (
-            <Type name={t} key={t} />
-          ))}
-        </TypesList>
+        <TypesList types={pokemon.types} />
       </Accordeon>
       <Accordeon title="Resistants">
-        <TypesList>
-          {pokemon.resistant.map(t => (
-            <Type name={t} key={t} />
-          ))}
-        </TypesList>
+        <TypesList types={pokemon.resistant} />
       </Accordeon>
       <Accordeon title="Attacks">
         <AttackList title="Fast" attacks={pokemon.attacks.fast} />
