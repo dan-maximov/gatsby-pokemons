@@ -23,7 +23,7 @@ const PokemonsList = ({ pokemons, EmptyState }) => {
   return (
     <Wrapper>
       {pokemons.map(pokemon => (
-        <Pokemon data={pokemon} />
+        <Pokemon key={pokemon.id} data={pokemon} />
       ))}
       {placeholdersArray.map(i => (
         <CardPlaceholder key={i} />
