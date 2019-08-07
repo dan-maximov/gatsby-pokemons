@@ -47,7 +47,7 @@ const PokemonsList = ({ pokemons, EmptyState, title }) => {
 };
 
 PokemonsList.propTypes = {
-  pokemons: PropTypes.arrayOf(PropTypes.shape(pokeCardPropTypes)).isRequired,
+  pokemons: PropTypes.arrayOf(pokeCardPropTypes).isRequired,
   EmptyState: PropTypes.oneOfType([PropTypes.func, PropTypes.symbol]),
   title: PropTypes.node,
 };

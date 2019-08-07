@@ -10,6 +10,7 @@ import { attack } from '../components/Attack';
 import AttackList from '../components/AttackList';
 import AddToFavorites from '../components/AddToFavorites';
 import AddToCompares from '../components/AddToCompares';
+import PokemonCard, { pokeCardPropTypes } from '../components/PokemonCard';
 
 const Head = styled.div`
   margin-top: 16px;
@@ -53,7 +54,31 @@ const Classification = styled.h2`
 
 const Buttons = styled.div`
   display: flex;
-  margin-top: 1em;
+  margin-top: 16px;
+`;
+
+const EvolutionsWrapper = styled.div``;
+
+const EvolutionsTitle = styled.p`
+  font-size: 24px;
+  padding: 16px 16px 0;
+`;
+
+const PokeCard = styled(PokemonCard)`
+  width: 200px;
+  min-width: 200px;
+`;
+
+const EvolutionsList = styled.div`
+  display: flex;
+  overflow-x: auto;
+  padding: 16px;
+
+  & ${PokeCard} {
+    :not(:first-child) {
+      margin-left: 16px;
+    }
+  }
 `;
 
 const PokemonPage = ({ pokemon }) => (
@@ -96,6 +121,10 @@ const PokemonPage = ({ pokemon }) => (
         <AttackList title="Fast" attacks={pokemon.attacks.fast} />
         <AttackList title="Special" attacks={pokemon.attacks.special} />
       </Accordeon>
+      <EvolutionsWrapper>
+        <EvolutionsTitle>Evolutions</EvolutionsTitle>
+        <EvolutionsList>{pokemon.evolutions && pokemon.evolutions.map(p => <PokeCard data={p} />)}</EvolutionsList>
+      </EvolutionsWrapper>
     </Footer>
   </>
 );
@@ -128,6 +157,7 @@ PokemonPage.propTypes = {
       name: PropTypes.string,
       amount: PropTypes.number,
     }),
+    evolutions: PropTypes.arrayOf(pokeCardPropTypes),
   }).isRequired,
 };
 
@@ -172,6 +202,10 @@ export const query = graphql`
             type
             damage
           }
+        }
+
+        evolutions {
+          ...PokemonCard
         }
       }
     }

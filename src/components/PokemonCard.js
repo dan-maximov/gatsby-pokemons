@@ -62,8 +62,8 @@ const Title = styled.div`
   }
 `;
 
-const PokemonCard = ({ data }) => (
-  <Card to={`/${data.id}`}>
+const PokemonCard = ({ data, ...props }) => (
+  <Card to={`/${data.id}`} {...props}>
     <ImageWrapper>
       <Image src={data.image} alt={data.name} />
     </ImageWrapper>
@@ -79,16 +79,16 @@ const PokemonCard = ({ data }) => (
   </Card>
 );
 
-export const pokeCardPropTypes = {
+export const pokeCardPropTypes = PropTypes.shape({
   id: PropTypes.string,
   name: PropTypes.string,
   number: PropTypes.string,
   image: PropTypes.string,
   attacks: damageDifferencePropTypes,
-};
+});
 
 PokemonCard.propTypes = {
-  data: PropTypes.shape(pokeCardPropTypes).isRequired,
+  data: pokeCardPropTypes.isRequired,
 };
 
 export const query = graphql`
