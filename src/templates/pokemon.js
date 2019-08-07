@@ -6,6 +6,7 @@ import Stat from '../components/Stat';
 import DamageDifference from '../components/DamageDifference';
 import Accordeon from '../components/Accordeon';
 import Type from '../components/Type';
+import AddToFavorites from '../components/AddToFavorites';
 
 const Head = styled.div`
   padding-top: 16px;
@@ -71,28 +72,17 @@ const PokemonPage = ({ pokemon }) => (
       <Details>
         <Name>{`${pokemon.name} - ${pokemon.number}`}</Name>
         <Classification>{pokemon.classification}</Classification>
-        <Stat
-          title="Height"
-          value={`${pokemon.height.minimum} - ${pokemon.height.maximum}`}
-        />
-        <Stat
-          title="Weight"
-          value={`${pokemon.weight.minimum} - ${pokemon.weight.maximum}`}
-        />
-        <Stat
-          title="Damage"
-          value={<DamageDifference attacks={pokemon.attacks} />}
-        />
-        <Stat
-          title="Flee Rate"
-          value={`${Math.floor(pokemon.fleeRate * 100)}%`}
-        />
+        <Stat title="Height" value={`${pokemon.height.minimum} - ${pokemon.height.maximum}`} />
+        <Stat title="Weight" value={`${pokemon.weight.minimum} - ${pokemon.weight.maximum}`} />
+        <Stat title="Damage" value={<DamageDifference attacks={pokemon.attacks} />} />
+        <Stat title="Flee Rate" value={`${Math.floor(pokemon.fleeRate * 100)}%`} />
         <Stat title="Max CP" value={`${pokemon.maxCP} CP`} />
         <Stat title="Max HP" value={`${pokemon.maxHP} HP`} />
         <Stat
           title="Evolution Requirement"
           value={`${pokemon.evolutionRequirements.amount} ${pokemon.evolutionRequirements.name}`}
         />
+        <AddToFavorites id={pokemon.id} />
       </Details>
     </Head>
     <Footer>
@@ -116,6 +106,7 @@ const PokemonPage = ({ pokemon }) => (
 
 PokemonPage.propTypes = {
   pokemon: PropTypes.objectOf({
+    id: PropTypes.string,
     name: PropTypes.string,
     number: PropTypes.string,
     image: PropTypes.string,
@@ -152,6 +143,7 @@ export const query = graphql`
   query($slug: String!) {
     pokeApi {
       pokemon(id: $slug) {
+        id
         name
         number
         image

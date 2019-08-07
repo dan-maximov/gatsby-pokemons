@@ -16,8 +16,11 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
+    "reselect": "^4.0.0",
     "styled-components": "^4.3.2",
-    "styled-normalize": "^8.0.6"
+    "styled-normalize": "^8.0.6",
+    "tiny-cookie": "^2.3.1",
+    "unistore": "^3.4.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",

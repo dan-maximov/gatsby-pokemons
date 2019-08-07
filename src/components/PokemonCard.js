@@ -79,20 +79,24 @@ const PokemonCard = ({ data }) => (
   </Card>
 );
 
+export const pokeCartPropTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  number: PropTypes.string,
+  image: PropTypes.string,
+  attacks: PropTypes.objectOf({
+    fast: PropTypes.objectOf({
+      damage: PropTypes.number,
+    }),
+    special: PropTypes.objectOf({
+      damage: PropTypes.number,
+    }),
+  }),
+};
+
 PokemonCard.propTypes = {
   data: PropTypes.objectOf({
-    id: PropTypes.string,
-    name: PropTypes.string,
-    number: PropTypes.string,
-    image: PropTypes.string,
-    attacks: PropTypes.objectOf({
-      fast: PropTypes.objectOf({
-        damage: PropTypes.number,
-      }),
-      special: PropTypes.objectOf({
-        damage: PropTypes.number,
-      }),
-    }),
+    pokeCartPropTypes,
   }).isRequired,
 };
 
