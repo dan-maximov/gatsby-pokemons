@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import { FaHeart } from 'react-icons/fa';
 import pika from './pikachu.png';
 
 const Wrapper = styled.header`
@@ -38,6 +39,10 @@ const LinkText = styled.span`
   margin-left: 12px;
 `;
 
+const LinkToFavorites = styled(Link)`
+  margin-left: auto;
+`;
+
 const Header = () => (
   <Wrapper>
     <Inner>
@@ -45,6 +50,9 @@ const Header = () => (
         <Logo src={pika} alt="site logo" />
         <LinkText>PokeList</LinkText>
       </LinkToHome>
+      <LinkToFavorites to="/favorites">
+        <FaHeart color="#fff" size="18px" />
+      </LinkToFavorites>
     </Inner>
   </Wrapper>
 );
