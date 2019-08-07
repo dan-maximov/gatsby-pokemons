@@ -4,6 +4,7 @@ import { connect } from 'unistore/react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 
+import EmptyState from '../components/EmptyCompares';
 import { comparesStats } from '../utils/format';
 
 const CELL_WIDTH = 150;
@@ -97,6 +98,10 @@ const Cell = styled.div`
 const Compares = ({ compare }) => {
   const data = useStaticQuery(query);
   const pokemons = data.pokeApi.pokemons.filter(({ id }) => compare.includes(id));
+
+  if (pokemons.length === 0) {
+    return <EmptyState />;
+  }
 
   return (
     <Wrapper>
