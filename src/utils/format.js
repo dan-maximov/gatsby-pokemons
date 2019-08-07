@@ -23,6 +23,38 @@ export const damageDiff = o => `${findEstDmg(SMALLEST, o)} - ${findEstDmg(HIGHES
 
 export default undefined;
 
+export const pageStats = [
+  {
+    title: 'Height',
+    extractor: ({ height }) => `${height.minimum} - ${height.maximum}`,
+  },
+  {
+    title: 'Weight',
+    extractor: ({ weight }) => `${weight.minimum} - ${weight.maximum}`,
+  },
+  {
+    title: 'Damage',
+    extractor: ({ attacks }) => damageDiff(attacks),
+  },
+  {
+    title: 'Flee Rate',
+    extractor: ({ fleeRate }) => `${Math.floor(fleeRate * 100)}%`,
+  },
+  {
+    title: 'Max CP',
+    extractor: ({ maxCP }) => `${maxCP} CP`,
+  },
+  {
+    title: 'Max HP',
+    extractor: ({ maxHP }) => `${maxHP} HP`,
+  },
+  {
+    title: 'Evolution Requirement',
+    extractor: ({ evolutionRequirements }) =>
+      evolutionRequirements ? `${evolutionRequirements.amount} ${evolutionRequirements.name}` : '一',
+  },
+];
+
 export const comparesStats = [
   {
     title: 'Height',

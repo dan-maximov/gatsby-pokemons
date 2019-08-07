@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import { comparesStats } from '../utils/format';
 import Stat from '../components/Stat';
-import DamageDifference from '../components/DamageDifference';
 import Accordeon from '../components/Accordeon';
 import TypesList from '../components/TypesList';
 import { attack } from '../components/Attack';
@@ -90,20 +90,9 @@ const PokemonPage = ({ pokemon }) => (
       <Details>
         <h1>{`${pokemon.name} - ${pokemon.number}`}</h1>
         <Classification>{pokemon.classification}</Classification>
-        <Stat title="Height" value={`${pokemon.height.minimum} - ${pokemon.height.maximum}`} />
-        <Stat title="Weight" value={`${pokemon.weight.minimum} - ${pokemon.weight.maximum}`} />
-        <Stat title="Damage" value={<DamageDifference attacks={pokemon.attacks} />} />
-        <Stat title="Flee Rate" value={`${Math.floor(pokemon.fleeRate * 100)}%`} />
-        <Stat title="Max CP" value={`${pokemon.maxCP} CP`} />
-        <Stat title="Max HP" value={`${pokemon.maxHP} HP`} />
-        <Stat
-          title="Evolution Requirement"
-          value={
-            pokemon.evolutionRequirements
-              ? `${pokemon.evolutionRequirements.amount} ${pokemon.evolutionRequirements.name}`
-              : '一'
-          }
-        />
+        {comparesStats.map(s => (
+          <Stat key={s.title} title={s.title} value={s.extractor(pokemon)} />
+        ))}
         <Buttons>
           <AddToFavorites id={pokemon.id} />
           <AddToCompares id={pokemon.id} />
