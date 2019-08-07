@@ -39,14 +39,14 @@ const HiddenCheckbox = styled.input`
 `;
 
 const Accordeon = ({ title, children }) => (
-  <React.Fragment>
+  <>
     <HiddenCheckbox type="checkbox" id={title} />
     <Header htmlFor={title}>
       <Title>{title}</Title>
       <Chevron />
     </Header>
     <Content>{children}</Content>
-  </React.Fragment>
+  </>
 );
 
 Accordeon.propTypes = {

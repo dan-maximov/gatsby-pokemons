@@ -16,10 +16,10 @@ const query = graphql`
 const IndexPage = () => {
   const data = useStaticQuery(query);
   return (
-    <React.Fragment>
+    <>
       <SEO title="" />
       <PokemonsList pokemons={data.pokeApi.pokemons} />
-    </React.Fragment>
+    </>
   );
 };
 

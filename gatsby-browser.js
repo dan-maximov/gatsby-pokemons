@@ -16,9 +16,9 @@ exports.wrapPageElement = ({ element, props }) => <Layout {...props}>{element}</
 
 // eslint-disable-next-line react/prop-types
 exports.wrapRootElement = ({ element }) => (
-  <React.Fragment>
+  <>
     <Normalize />
     <GlobalStyle />
     <Provider store={createStore()}>{element}</Provider>
-  </React.Fragment>
+  </>
 );

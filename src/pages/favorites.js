@@ -21,10 +21,10 @@ const Favorites = ({ favorite }) => {
   const pokemons = data.pokeApi.pokemons.filter(({ id }) => favorite.includes(id));
 
   return (
-    <React.Fragment>
+    <>
       <SEO title="Favorites" />
       <PokemonsList pokemons={pokemons} EmptyState={EmptyFavorites} title={<h1>Favorites</h1>} />
-    </React.Fragment>
+    </>
   );
 };
 

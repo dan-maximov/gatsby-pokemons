@@ -57,7 +57,7 @@ const Buttons = styled.div`
 `;
 
 const PokemonPage = ({ pokemon }) => (
-  <React.Fragment>
+  <>
     <Head>
       <ImageWrapper>
         <img src={pokemon.image} alt={pokemon.name} />
@@ -97,7 +97,7 @@ const PokemonPage = ({ pokemon }) => (
         <AttackList title="Special" attacks={pokemon.attacks.special} />
       </Accordeon>
     </Footer>
-  </React.Fragment>
+  </>
 );
 
 PokemonPage.propTypes = {
