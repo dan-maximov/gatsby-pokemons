@@ -110,10 +110,10 @@ const Compares = ({ compare }) => {
 
   if (pokemons.length === 0) {
     return (
-      <Wrapper>
+      <>
         <Title>Compare pokemons</Title>
         <EmptyState />
-      </Wrapper>
+      </>
     );
   }
 
