@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { connect } from 'unistore/react';
 import SEO from '../components/Seo';
 import PokemonsList from '../components/PokemonsList';
+import EmptyFavorites from '../components/EmptyFavorites';
 
 const query = graphql`
   query {
@@ -22,7 +23,7 @@ const Favorites = ({ favorite }) => {
   return (
     <React.Fragment>
       <SEO title="Favorites" />
-      <PokemonsList pokemons={pokemons} />
+      <PokemonsList pokemons={pokemons} EmptyState={EmptyFavorites} />
     </React.Fragment>
   );
 };
