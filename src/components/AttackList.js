@@ -1,15 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Attack, { attack } from './Attack';
-
-const Title = styled.h2`
-  margin: 0;
-`;
 
 const AttackList = ({ title, attacks }) => (
   <>
-    <Title>{title}</Title>
+    <h2>{title}</h2>
     {attacks.map(a => (
       <Attack attack={a} key={a.name} />
     ))}

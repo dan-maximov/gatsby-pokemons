@@ -10,13 +10,8 @@ const Wrapper = styled.div`
   margin: 1.5em 0;
 `;
 
-const Name = styled.p`
-  margin: 0;
-`;
-
 const Type = styled.p`
   font-size: 0.8em;
-  margin: 0;
   color: #9e9e9e;
 `;
 
@@ -25,7 +20,6 @@ const DamageWrapper = styled.div`
 `;
 
 const Damage = styled.p`
-  margin: 0;
   margin-right: 6px;
   color: #d50000;
   font-weight: bold;
@@ -34,7 +28,7 @@ const Damage = styled.p`
 const Attack = ({ attack }) => (
   <Wrapper>
     <div>
-      <Name>{attack.name}</Name>
+      <p>{attack.name}</p>
       <Type>{attack.type}</Type>
     </div>
     <DamageWrapper>

@@ -7,7 +7,7 @@ import Footer from './Footer';
 
 const Wrapper = styled.div`
   margin: 0 auto;
-  margin-top: 48px;
+  padding-top: 48px;
   max-width: 960px;
   min-height: calc(100vh - 78px);
 `;

@@ -12,7 +12,6 @@ const Header = styled.label`
 `;
 
 const Title = styled.p`
-  margin: 0;
   font-size: 24px;
 `;
 

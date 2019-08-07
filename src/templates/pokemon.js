@@ -12,13 +12,13 @@ import AddToFavorites from '../components/AddToFavorites';
 import AddToCompares from '../components/AddToCompares';
 
 const Head = styled.div`
-  padding-top: 16px;
+  margin-top: 16px;
   display: flex;
 
   @media (max-width: 800px) {
     flex-direction: column;
     justify-content: center;
-    padding: 16px 16px 0;
+    margin: 16px 16px 0;
   }
 `;
 
@@ -46,13 +46,8 @@ const Details = styled.div`
   }
 `;
 
-const Name = styled.h1`
-  margin: 0;
-`;
-
 const Classification = styled.h2`
   font-size: 1em;
-  margin: 0;
   margin-bottom: 16px;
 `;
 
@@ -68,7 +63,7 @@ const PokemonPage = ({ pokemon }) => (
         <img src={pokemon.image} alt={pokemon.name} />
       </ImageWrapper>
       <Details>
-        <Name>{`${pokemon.name} - ${pokemon.number}`}</Name>
+        <h1>{`${pokemon.name} - ${pokemon.number}`}</h1>
         <Classification>{pokemon.classification}</Classification>
         <Stat title="Height" value={`${pokemon.height.minimum} - ${pokemon.height.maximum}`} />
         <Stat title="Weight" value={`${pokemon.weight.minimum} - ${pokemon.weight.maximum}`} />

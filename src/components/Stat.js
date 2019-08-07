@@ -7,7 +7,6 @@ const Wrapper = styled.div`
 `;
 
 const Text = styled.p`
-  margin: 0;
   margin-top: 2px;
   display: flex;
 `;
