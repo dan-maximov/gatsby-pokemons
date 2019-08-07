@@ -95,16 +95,26 @@ const Cell = styled.div`
   max-width: ${CELL_WIDTH}px;
 `;
 
+const Title = styled.h2`
+  padding-bottom: 0.5em;
+`;
+
 const Compares = ({ compare }) => {
   const data = useStaticQuery(query);
   const pokemons = data.pokeApi.pokemons.filter(({ id }) => compare.includes(id));
 
   if (pokemons.length === 0) {
-    return <EmptyState />;
+    return (
+      <Wrapper>
+        <Title>Compare pokemons</Title>
+        <EmptyState />
+      </Wrapper>
+    );
   }
 
   return (
     <Wrapper>
+      <Title>Compare pokemons</Title>
       <Head>
         {pokemons.map(p => (
           <HeadCard to={`/${p.id}`}>
