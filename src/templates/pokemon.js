@@ -38,6 +38,11 @@ const ImageWrapper = styled.div`
   }
 `;
 
+const Image = styled.img`
+  width: 100%;
+  height: auto;
+`;
+
 const Details = styled.div`
   width: 100%;
   margin-left: 32px;
@@ -62,7 +67,7 @@ const PokemonPage = ({ pokemon }) => (
   <>
     <Head>
       <ImageWrapper>
-        <img src={pokemon.image} alt={pokemon.name} />
+        <Image src={pokemon.image} alt={pokemon.name} />
       </ImageWrapper>
       <Details>
         <h1>{`${pokemon.name} - ${pokemon.number}`}</h1>
