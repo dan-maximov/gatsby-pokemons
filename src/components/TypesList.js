@@ -6,6 +6,7 @@ import Type from './Type';
 const Wrapper = styled.div`
   display: flex;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 
   & > div {
     :not(:first-child) {

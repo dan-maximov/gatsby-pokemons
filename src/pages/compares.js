@@ -42,6 +42,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   padding-top: 16px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   overflow-y: hidden;
   max-height: calc(100vh - 94px);
 `;

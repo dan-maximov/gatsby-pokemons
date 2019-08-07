@@ -16,6 +16,7 @@ const PokeCard = styled(PokemonCard)`
 const List = styled.div`
   display: flex;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 16px;
 
   & ${PokeCard} {
