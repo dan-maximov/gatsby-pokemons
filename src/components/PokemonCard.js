@@ -63,7 +63,7 @@ const Title = styled.div`
 `;
 
 const PokemonCard = ({ data }) => (
-  <Card to={data.id}>
+  <Card to={`/${data.id}`}>
     <ImageWrapper>
       <Image src={data.image} alt={data.name} />
     </ImageWrapper>
