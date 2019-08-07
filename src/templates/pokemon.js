@@ -109,7 +109,7 @@ const PokemonPage = ({ pokemon }) => (
 );
 
 PokemonPage.propTypes = {
-  pokemon: PropTypes.objectOf({
+  pokemon: PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
     number: PropTypes.string,
@@ -120,23 +120,23 @@ PokemonPage.propTypes = {
     fleeRate: PropTypes.number.isRequired,
     maxCP: PropTypes.number.isRequired,
     maxHP: PropTypes.number.isRequired,
-    height: PropTypes.objectOf({
+    height: PropTypes.shape({
       minimum: PropTypes.string,
       maximum: PropTypes.string,
     }),
-    weight: PropTypes.objectOf({
+    weight: PropTypes.shape({
       minimum: PropTypes.string,
       maximum: PropTypes.string,
     }),
-    attacks: PropTypes.objectOf({
-      fast: PropTypes.objectOf({
+    attacks: PropTypes.shape({
+      fast: PropTypes.shape({
         damage: PropTypes.number,
       }),
-      special: PropTypes.objectOf({
+      special: PropTypes.shape({
         damage: PropTypes.number,
       }),
     }),
-    evolutionRequirements: PropTypes.objectOf({
+    evolutionRequirements: PropTypes.shape({
       name: PropTypes.string,
       amount: PropTypes.number,
     }),

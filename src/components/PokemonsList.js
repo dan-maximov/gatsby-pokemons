@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Pokemon, { CardPlaceholder, pokeCartPropTypes } from './PokemonCard';
+import Pokemon, { CardPlaceholder, pokeCardPropTypes } from './PokemonCard';
 
 const Wrapper = styled.div`
   display: flex;
@@ -33,8 +33,8 @@ const PokemonsList = ({ pokemons, EmptyState }) => {
 };
 
 PokemonsList.propTypes = {
-  pokemons: PropTypes.arrayOf(pokeCartPropTypes).isRequired,
-  EmptyState: PropTypes.node,
+  pokemons: PropTypes.arrayOf(PropTypes.shape(pokeCardPropTypes)).isRequired,
+  EmptyState: PropTypes.oneOfType([PropTypes.func, PropTypes.symbol]),
 };
 
 PokemonsList.defaultProps = {

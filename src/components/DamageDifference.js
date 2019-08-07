@@ -4,19 +4,21 @@ import { damageDiff } from '../utils/format';
 
 const DamageDifference = ({ attacks }) => damageDiff(attacks);
 
+export const damageDifferencePropTypes = PropTypes.shape({
+  fast: PropTypes.arrayOf(
+    PropTypes.shape({
+      damage: PropTypes.number,
+    }),
+  ),
+  special: PropTypes.arrayOf(
+    PropTypes.shape({
+      damage: PropTypes.number,
+    }),
+  ),
+});
+
 DamageDifference.propTypes = {
-  attacks: PropTypes.shape({
-    fast: PropTypes.arrayOf(
-      PropTypes.shape({
-        damage: PropTypes.number,
-      }),
-    ),
-    special: PropTypes.arrayOf(
-      PropTypes.shape({
-        damage: PropTypes.number,
-      }),
-    ),
-  }).isRequired,
+  attacks: damageDifferencePropTypes.isRequired,
 };
 
 export const query = graphql`

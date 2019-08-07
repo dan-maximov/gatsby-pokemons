@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import styled, { css } from 'styled-components';
-import DamageDifference from './DamageDifference';
+import DamageDifference, { damageDifferencePropTypes } from './DamageDifference';
 
 const widthStyle = css`
   width: 23%;
@@ -79,25 +79,16 @@ const PokemonCard = ({ data }) => (
   </Card>
 );
 
-export const pokeCartPropTypes = {
+export const pokeCardPropTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   number: PropTypes.string,
   image: PropTypes.string,
-  attacks: PropTypes.objectOf({
-    fast: PropTypes.objectOf({
-      damage: PropTypes.number,
-    }),
-    special: PropTypes.objectOf({
-      damage: PropTypes.number,
-    }),
-  }),
+  attacks: damageDifferencePropTypes,
 };
 
 PokemonCard.propTypes = {
-  data: PropTypes.objectOf({
-    pokeCartPropTypes,
-  }).isRequired,
+  data: PropTypes.shape(pokeCardPropTypes).isRequired,
 };
 
 export const query = graphql`
