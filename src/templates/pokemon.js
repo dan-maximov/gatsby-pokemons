@@ -80,7 +80,11 @@ const PokemonPage = ({ pokemon }) => (
         <Stat title="Max HP" value={`${pokemon.maxHP} HP`} />
         <Stat
           title="Evolution Requirement"
-          value={`${pokemon.evolutionRequirements.amount} ${pokemon.evolutionRequirements.name}`}
+          value={
+            pokemon.evolutionRequirements
+              ? `${pokemon.evolutionRequirements.amount} ${pokemon.evolutionRequirements.name}`
+              : '一'
+          }
         />
         <AddToFavorites id={pokemon.id} />
       </Details>
