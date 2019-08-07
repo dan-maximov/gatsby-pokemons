@@ -38,13 +38,17 @@ const query = graphql`
 `;
 
 const Wrapper = styled.div`
+  max-height: calc(100vh - 133px);
+`;
+
+const ScrollableWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 16px;
+  padding: 0 16px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   overflow-y: hidden;
-  max-height: calc(100vh - 94px);
+  max-height: calc(100vh - 133px);
 `;
 
 const Inner = styled.div`
@@ -97,7 +101,7 @@ const Cell = styled.div`
 `;
 
 const Title = styled.h2`
-  padding-bottom: 12px;
+  padding: 16px 16px 12px;
 `;
 
 const Compares = ({ compare }) => {
@@ -116,28 +120,30 @@ const Compares = ({ compare }) => {
   return (
     <Wrapper>
       <Title>Compare pokemons</Title>
-      <Head>
-        {pokemons.map(p => (
-          <HeadCard to={`/${p.id}`}>
-            <div>
-              <Image src={p.image} alt={p.name} />
-            </div>
-            <p>{p.name}</p>
-          </HeadCard>
-        ))}
-      </Head>
-      <Inner style={{ width: pokemons.length * CELL_WIDTH }}>
-        {comparesStats.map(s => (
-          <RowWrapper>
-            <StatTitle>{s.title}</StatTitle>
-            <Row>
-              {pokemons.map(p => (
-                <Cell>{s.extractor(p)}</Cell>
-              ))}
-            </Row>
-          </RowWrapper>
-        ))}
-      </Inner>
+      <ScrollableWrapper>
+        <Head>
+          {pokemons.map(p => (
+            <HeadCard to={`/${p.id}`}>
+              <div>
+                <Image src={p.image} alt={p.name} />
+              </div>
+              <p>{p.name}</p>
+            </HeadCard>
+          ))}
+        </Head>
+        <Inner style={{ width: pokemons.length * CELL_WIDTH }}>
+          {comparesStats.map(s => (
+            <RowWrapper>
+              <StatTitle>{s.title}</StatTitle>
+              <Row>
+                {pokemons.map(p => (
+                  <Cell>{s.extractor(p)}</Cell>
+                ))}
+              </Row>
+            </RowWrapper>
+          ))}
+        </Inner>
+      </ScrollableWrapper>
     </Wrapper>
   );
 };
