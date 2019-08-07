@@ -30,7 +30,7 @@ const Stat = ({ title, value }) => (
 
 Stat.propTypes = {
   title: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
 };
 
 export default Stat;
