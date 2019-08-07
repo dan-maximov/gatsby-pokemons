@@ -34,11 +34,7 @@ const Footer = () => (
   <Wrapper>
     <Inner>
       <CurrentYear>{`© ${new Date().getFullYear()}, `}</CurrentYear>
-      <Link
-        href="https://github.com/meatspincom"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <Link href="https://github.com/meatspincom" target="_blank" rel="noopener noreferrer">
         meatspincom
       </Link>
     </Inner>
