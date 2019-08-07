@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Stat from '../components/Stat';
 import DamageDifference from '../components/DamageDifference';
+import Accordeon from '../components/Accordeon';
+import Type from '../components/Type';
 
 const Head = styled.div`
   padding-top: 16px;
@@ -12,6 +14,13 @@ const Head = styled.div`
   @media (max-width: 800px) {
     flex-direction: column;
     justify-content: center;
+    padding: 16px 16px 0;
+  }
+`;
+
+const Footer = styled.div`
+  padding-top: 16px;
+  @media (max-width: 800px) {
     padding: 16px 16px 0;
   }
 `;
@@ -41,6 +50,16 @@ const Classification = styled.h2`
   font-size: 1em;
   margin: 0;
   margin-bottom: 16px;
+`;
+
+const TypesList = styled.div`
+  display: flex;
+
+  & > div {
+    :not(:first-child) {
+      margin-left: 8px;
+    }
+  }
 `;
 
 const PokemonPage = ({ pokemon }) => (
@@ -76,6 +95,22 @@ const PokemonPage = ({ pokemon }) => (
         />
       </Details>
     </Head>
+    <Footer>
+      <Accordeon title="Types">
+        <TypesList>
+          {pokemon.types.map(t => (
+            <Type name={t} key={t} />
+          ))}
+        </TypesList>
+      </Accordeon>
+      <Accordeon title="Resistants">
+        <TypesList>
+          {pokemon.resistant.map(t => (
+            <Type name={t} key={t} />
+          ))}
+        </TypesList>
+      </Accordeon>
+    </Footer>
   </React.Fragment>
 );
 
@@ -85,6 +120,8 @@ PokemonPage.propTypes = {
     number: PropTypes.string,
     image: PropTypes.string,
     classification: PropTypes.string,
+    types: PropTypes.arrayOf(PropTypes.string),
+    resistant: PropTypes.arrayOf(PropTypes.string),
     fleeRate: PropTypes.number.isRequired,
     maxCP: PropTypes.number.isRequired,
     maxHP: PropTypes.number.isRequired,
@@ -119,6 +156,8 @@ export const query = graphql`
         number
         image
         classification
+        types
+        resistant
         fleeRate
         maxCP
         maxHP
