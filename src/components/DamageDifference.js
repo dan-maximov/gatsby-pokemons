@@ -5,17 +5,17 @@ import { damageDiff } from '../utils/format';
 const DamageDifference = ({ attacks }) => damageDiff(attacks);
 
 DamageDifference.propTypes = {
-  attacks: PropTypes.objectOf({
-    fast: PropTypes.objectOf({
-      name: PropTypes.string,
-      type: PropTypes.string,
-      damage: PropTypes.number,
-    }),
-    special: PropTypes.objectOf({
-      name: PropTypes.string,
-      type: PropTypes.string,
-      damage: PropTypes.number,
-    }),
+  attacks: PropTypes.shape({
+    fast: PropTypes.arrayOf(
+      PropTypes.shape({
+        damage: PropTypes.number,
+      }),
+    ),
+    special: PropTypes.arrayOf(
+      PropTypes.shape({
+        damage: PropTypes.number,
+      }),
+    ),
   }).isRequired,
 };
 
