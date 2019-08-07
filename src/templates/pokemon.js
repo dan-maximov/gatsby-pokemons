@@ -6,6 +6,8 @@ import Stat from '../components/Stat';
 import DamageDifference from '../components/DamageDifference';
 import Accordeon from '../components/Accordeon';
 import Type from '../components/Type';
+import { attack } from '../components/Attack';
+import AttackList from '../components/AttackList';
 import AddToFavorites from '../components/AddToFavorites';
 
 const Head = styled.div`
@@ -104,6 +106,10 @@ const PokemonPage = ({ pokemon }) => (
           ))}
         </TypesList>
       </Accordeon>
+      <Accordeon title="Attacks">
+        <AttackList title="Fast" attacks={pokemon.attacks.fast} />
+        <AttackList title="Special" attacks={pokemon.attacks.special} />
+      </Accordeon>
     </Footer>
   </React.Fragment>
 );
@@ -129,12 +135,8 @@ PokemonPage.propTypes = {
       maximum: PropTypes.string,
     }),
     attacks: PropTypes.shape({
-      fast: PropTypes.shape({
-        damage: PropTypes.number,
-      }),
-      special: PropTypes.shape({
-        damage: PropTypes.number,
-      }),
+      fast: PropTypes.arrayOf(attack),
+      special: PropTypes.arrayOf(attack),
     }),
     evolutionRequirements: PropTypes.shape({
       name: PropTypes.string,
@@ -173,7 +175,18 @@ export const query = graphql`
           amount
         }
 
-        ...AttacksDifference
+        attacks {
+          fast {
+            name
+            type
+            damage
+          }
+          special {
+            name
+            type
+            damage
+          }
+        }
       }
     }
   }
