@@ -11,7 +11,7 @@ const widthStyle = css`
     width: 32%;
   }
 
-  @media (max-width: 666px) {
+  @media (max-width: 550px) {
     width: 48%;
   }
 `;
