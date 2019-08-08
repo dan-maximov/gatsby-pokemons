@@ -1,11 +1,21 @@
 /* global document IntersectionObserver */
 import React, { useRef, useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const unloadedStyle = css`
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 0;
+`;
+
+const loadedStyle = css`
+  opacity: 1;
+`;
 
 const Image = styled.img`
-  opacity: ${({ loaded }) => (loaded ? 1 : 0)};
   transition: 0.3s opacity linear;
+  ${({ loaded }) => (loaded ? loadedStyle : unloadedStyle)}
 `;
 
 const LazyImage = ({ src, alt, ...props }) => {
