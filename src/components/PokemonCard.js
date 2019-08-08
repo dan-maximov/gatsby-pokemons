@@ -17,6 +17,17 @@ const widthStyle = css`
   }
 `;
 
+const imageStyle = css`
+  position: absolute;
+  max-height: 90%;
+  max-width: 90%;
+  height: auto;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
 export const CardPlaceholder = styled.div`
   ${widthStyle}
 `;
@@ -44,14 +55,11 @@ const ImageWrapper = styled.div`
 `;
 
 const Image = styled(LazyImage)`
-  position: absolute;
-  max-height: 90%;
-  max-width: 90%;
-  height: auto;
-  width: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  ${imageStyle}
+`;
+
+const NoJSImage = styled.img`
+  ${imageStyle}
 `;
 
 const Title = styled.div`
@@ -72,6 +80,9 @@ const PokeNumber = styled.span`
 const PokemonCard = ({ data, ...props }) => (
   <Card to={`/${data.id}`} {...props}>
     <ImageWrapper>
+      <noscript>
+        <NoJSImage src={data.image} alt={data.name} />
+      </noscript>
       <Image src={data.image} alt={data.name} />
     </ImageWrapper>
     <Title>
