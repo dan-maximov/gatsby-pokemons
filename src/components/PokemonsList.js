@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Pokemon, { CardPlaceholder, pokeCardPropTypes } from './PokemonCard';
+import InfinityScrollObserver from './InfinityScrollObserver';
 
 const Wrapper = styled.div`
   padding-top: 16px;
@@ -13,6 +14,7 @@ const Wrapper = styled.div`
 
 const Inner = styled.div`
   display: flex;
+  position: relative;
   flex-wrap: wrap;
   justify-content: space-between;
 `;
@@ -31,16 +33,24 @@ const PokemonsList = ({ pokemons, EmptyState, title }) => {
     );
   }
 
+  const [displayableQuantity, setDisplayableQuantity] = useState(20);
+
   return (
     <Wrapper>
       {title}
       <Inner>
-        {pokemons.map(pokemon => (
+        {pokemons.slice(0, displayableQuantity).map(pokemon => (
           <Pokemon key={pokemon.id} data={pokemon} />
         ))}
         {placeholdersArray.map(i => (
           <CardPlaceholder key={i} />
         ))}
+        <InfinityScrollObserver
+          max={pokemons.length}
+          current={displayableQuantity}
+          increaseQuantity={10}
+          increaseFunc={setDisplayableQuantity}
+        />
       </Inner>
     </Wrapper>
   );
