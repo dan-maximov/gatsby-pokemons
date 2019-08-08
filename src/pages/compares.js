@@ -7,6 +7,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import CompareStat, { CELL_WIDTH } from '../components/CompareStat';
 import EmptyState from '../components/EmptyCompares';
 import { adapt } from '../utils/format';
+import SEO from '../components/Seo';
 
 const query = graphql`
   query {
@@ -102,6 +103,7 @@ const Compares = ({ compare }) => {
 
   return (
     <Wrapper>
+      <SEO title="Compare pokemons" />
       <Title>Compare pokemons</Title>
       <ScrollableWrapper>
         <Head>

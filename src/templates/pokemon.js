@@ -12,6 +12,7 @@ import AddToFavorites from '../components/AddToFavorites';
 import AddToCompares from '../components/AddToCompares';
 import { pokeCardPropTypes } from '../components/PokemonCard';
 import EvolutionsList from '../components/EvolutionsList';
+import Seo from '../components/Seo';
 
 const Head = styled.div`
   margin-top: 16px;
@@ -66,6 +67,11 @@ const PokemonPage = ({ pokemon }) => {
 
   return (
     <>
+      <Seo
+        title={pokemon.name}
+        description={`${pokemon.name} ${pokemon.classification} on PokeList`}
+        image={pokemon.image}
+      />
       <Head>
         <ImageWrapper>
           <Image src={pokemon.image} alt={pokemon.name} />

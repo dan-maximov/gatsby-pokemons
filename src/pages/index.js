@@ -17,7 +17,7 @@ const IndexPage = () => {
   const data = useStaticQuery(query);
   return (
     <>
-      <SEO />
+      <SEO title="PokeList - Pokemons Catalog" />
       <PokemonsList pokemons={data.pokeApi.pokemons} />
     </>
   );

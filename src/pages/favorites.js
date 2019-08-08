@@ -27,7 +27,7 @@ const Favorites = ({ favorite }) => {
 
   return (
     <>
-      <SEO title="Favorites" />
+      <SEO title="Favorite pokemons" />
       <PokemonsList pokemons={pokemons} EmptyState={EmptyFavorites} title={<Title>Favorites</Title>} />
     </>
   );
