@@ -28,6 +28,10 @@ const LazyImage = ({ src, alt, ...props }) => {
       ),
     );
     observer.current.observe(image.current);
+
+    return () => {
+      if (observer.current) observer.current = observer.current.disconnect();
+    };
   }, []);
 
   return <Image loaded={loaded} onLoad={handleLoaded} ref={image} alt={alt} {...props} />;
