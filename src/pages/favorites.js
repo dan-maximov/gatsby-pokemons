@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import { connect } from 'unistore/react';
+import styled from 'styled-components';
 import SEO from '../components/Seo';
 import PokemonsList from '../components/PokemonsList';
 import EmptyFavorites from '../components/EmptyFavorites';
@@ -16,6 +17,10 @@ const query = graphql`
   }
 `;
 
+const Title = styled.h2`
+  padding: 0 16px;
+`;
+
 const Favorites = ({ favorite }) => {
   const data = useStaticQuery(query);
   const pokemons = data.pokeApi.pokemons.filter(({ id }) => favorite.includes(id));
@@ -23,7 +28,7 @@ const Favorites = ({ favorite }) => {
   return (
     <>
       <SEO title="Favorites" />
-      <PokemonsList pokemons={pokemons} EmptyState={EmptyFavorites} title={<h1>Favorites</h1>} />
+      <PokemonsList pokemons={pokemons} EmptyState={EmptyFavorites} title={<Title>Favorites</Title>} />
     </>
   );
 };

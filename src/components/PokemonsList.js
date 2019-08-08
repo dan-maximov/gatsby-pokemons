@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Pokemon, { CardPlaceholder, pokeCardPropTypes } from './PokemonCard';
 
 const Wrapper = styled.div`
-  padding-top: 8px;
+  padding-top: 16px;
 
   & > h1 {
     margin: 0 0 16px;
