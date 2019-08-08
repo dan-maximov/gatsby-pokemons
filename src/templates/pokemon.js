@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { comparesStats } from '../utils/format';
+import { adapt } from '../utils/format';
 import Stat from '../components/Stat';
 import Accordeon from '../components/Accordeon';
 import TypesList from '../components/TypesList';
@@ -60,39 +60,47 @@ const Buttons = styled.div`
   margin-top: 16px;
 `;
 
-const PokemonPage = ({ pokemon }) => (
-  <>
-    <Head>
-      <ImageWrapper>
-        <Image src={pokemon.image} alt={pokemon.name} />
-      </ImageWrapper>
-      <Details>
-        <h1>{`${pokemon.name} - ${pokemon.number}`}</h1>
-        <Classification>{pokemon.classification}</Classification>
-        {comparesStats.map(s => (
-          <Stat key={s.title} title={s.title} value={s.extractor(pokemon)} />
-        ))}
-        <Buttons>
-          <AddToFavorites id={pokemon.id} />
-          <AddToCompares id={pokemon.id} />
-        </Buttons>
-      </Details>
-    </Head>
-    <Footer>
-      <Accordeon title="Types">
-        <TypesList types={pokemon.types} />
-      </Accordeon>
-      <Accordeon title="Resistants">
-        <TypesList types={pokemon.resistant} />
-      </Accordeon>
-      <Accordeon title="Attacks">
-        <AttackList title="Fast" attacks={pokemon.attacks.fast} />
-        <AttackList title="Special" attacks={pokemon.attacks.special} />
-      </Accordeon>
-      <EvolutionsList evolutions={pokemon.evolutions} />
-    </Footer>
-  </>
-);
+const PokemonPage = ({ pokemon }) => {
+  const formatted = adapt(pokemon);
+
+  return (
+    <>
+      <Head>
+        <ImageWrapper>
+          <Image src={pokemon.image} alt={pokemon.name} />
+        </ImageWrapper>
+        <Details>
+          <h1>{`${pokemon.name} - ${pokemon.number}`}</h1>
+          <Classification>{pokemon.classification}</Classification>
+          <Stat title="Height" value={formatted.height} />
+          <Stat title="Weight" value={formatted.weight} />
+          <Stat title="Damage" value={formatted.damage} />
+          <Stat title="Flee Rate" value={formatted.fleeRate} />
+          <Stat title="Max CP" value={formatted.maxCP} />
+          <Stat title="Max HP" value={formatted.maxHP} />
+          <Stat title="Evolution Requirement" value={formatted.evolutionRequirements} />
+          <Buttons>
+            <AddToFavorites id={pokemon.id} />
+            <AddToCompares id={pokemon.id} />
+          </Buttons>
+        </Details>
+      </Head>
+      <Footer>
+        <Accordeon title="Types">
+          <TypesList types={pokemon.types} />
+        </Accordeon>
+        <Accordeon title="Resistants">
+          <TypesList types={pokemon.resistant} />
+        </Accordeon>
+        <Accordeon title="Attacks">
+          <AttackList title="Fast" attacks={pokemon.attacks.fast} />
+          <AttackList title="Special" attacks={pokemon.attacks.special} />
+        </Accordeon>
+        <EvolutionsList evolutions={pokemon.evolutions} />
+      </Footer>
+    </>
+  );
+};
 
 PokemonPage.propTypes = {
   pokemon: PropTypes.shape({

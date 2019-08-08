@@ -23,65 +23,25 @@ export const damageDiff = o => `${findEstDmg(SMALLEST, o)} - ${findEstDmg(HIGHES
 
 export default undefined;
 
-export const pageStats = [
-  {
-    title: 'Height',
-    extractor: ({ height }) => `${height.minimum} - ${height.maximum}`,
-  },
-  {
-    title: 'Weight',
-    extractor: ({ weight }) => `${weight.minimum} - ${weight.maximum}`,
-  },
-  {
-    title: 'Damage',
-    extractor: ({ attacks }) => damageDiff(attacks),
-  },
-  {
-    title: 'Flee Rate',
-    extractor: ({ fleeRate }) => `${Math.floor(fleeRate * 100)}%`,
-  },
-  {
-    title: 'Max CP',
-    extractor: ({ maxCP }) => `${maxCP} CP`,
-  },
-  {
-    title: 'Max HP',
-    extractor: ({ maxHP }) => `${maxHP} HP`,
-  },
-  {
-    title: 'Evolution Requirement',
-    extractor: ({ evolutionRequirements }) =>
-      evolutionRequirements ? `${evolutionRequirements.amount} ${evolutionRequirements.name}` : '一',
-  },
-];
+const dashOrInfo = (o, callback) => {
+  if (!o) {
+    return '一';
+  }
 
-export const comparesStats = [
-  {
-    title: 'Height',
-    extractor: ({ height }) => `${height.minimum} - ${height.maximum}`,
-  },
-  {
-    title: 'Weight',
-    extractor: ({ weight }) => `${weight.minimum} - ${weight.maximum}`,
-  },
-  {
-    title: 'Damage',
-    extractor: ({ attacks }) => damageDiff(attacks),
-  },
-  {
-    title: 'Flee Rate',
-    extractor: ({ fleeRate }) => fleeRate,
-  },
-  {
-    title: 'Max CP',
-    extractor: ({ maxCP }) => maxCP,
-  },
-  {
-    title: 'Max HP',
-    extractor: ({ maxHP }) => maxHP,
-  },
-  {
-    title: 'Classification',
-    extractor: ({ classification }) => classification,
-  },
-];
+  return callback(o);
+};
+
+export const adapt = pokemon => {
+  const obj = {};
+
+  obj.height = dashOrInfo(pokemon.height, o => `${o.minimum} - ${o.maximum}`);
+  obj.weight = dashOrInfo(pokemon.weight, o => `${o.minimum} - ${o.maximum}`);
+  obj.damage = dashOrInfo(pokemon.attacks, o => damageDiff(o));
+  obj.fleeRate = dashOrInfo(pokemon.fleeRate, o => `${Math.floor(o * 100)}%`);
+  obj.maxCP = dashOrInfo(pokemon.maxCP, o => `${o} CP`);
+  obj.maxHP = dashOrInfo(pokemon.maxHP, o => `${o} HP`);
+  obj.evolutionRequirements = dashOrInfo(pokemon.evolutionRequirements, o => `${o.amount} ${o.name}`);
+  obj.classification = dashOrInfo(pokemon.classification, o => o);
+
+  return obj;
+};

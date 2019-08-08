@@ -4,10 +4,9 @@ import { connect } from 'unistore/react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 
+import CompareStat, { CELL_WIDTH } from '../components/CompareStat';
 import EmptyState from '../components/EmptyCompares';
-import { comparesStats } from '../utils/format';
-
-const CELL_WIDTH = 150;
+import { adapt } from '../utils/format';
 
 const query = graphql`
   query {
@@ -82,24 +81,6 @@ const HeadCard = styled(Link)`
   }
 `;
 
-const StatTitle = styled.p`
-  font-size: 13px;
-  color: #9e9e9e;
-`;
-
-const RowWrapper = styled.div`
-  margin: 8px 0;
-`;
-
-const Row = styled.div`
-  display: flex;
-`;
-
-const Cell = styled.div`
-  min-width: ${CELL_WIDTH}px;
-  max-width: ${CELL_WIDTH}px;
-`;
-
 const Title = styled.h2`
   padding: 16px 16px 12px;
 `;
@@ -107,6 +88,7 @@ const Title = styled.h2`
 const Compares = ({ compare }) => {
   const data = useStaticQuery(query);
   const pokemons = data.pokeApi.pokemons.filter(({ id }) => compare.includes(id));
+  const formatteds = pokemons.map(p => Object.assign(adapt(p), { name: p.name }));
 
   if (pokemons.length === 0) {
     return (
@@ -123,7 +105,7 @@ const Compares = ({ compare }) => {
       <ScrollableWrapper>
         <Head>
           {pokemons.map(p => (
-            <HeadCard to={`/${p.id}`}>
+            <HeadCard key={p.name} to={`/${p.id}`}>
               <div>
                 <Image src={p.image} alt={p.name} />
               </div>
@@ -132,16 +114,13 @@ const Compares = ({ compare }) => {
           ))}
         </Head>
         <Inner style={{ width: pokemons.length * CELL_WIDTH }}>
-          {comparesStats.map(s => (
-            <RowWrapper>
-              <StatTitle>{s.title}</StatTitle>
-              <Row>
-                {pokemons.map(p => (
-                  <Cell>{s.extractor(p)}</Cell>
-                ))}
-              </Row>
-            </RowWrapper>
-          ))}
+          <CompareStat stats={formatteds} title="Height" objKey="height" />
+          <CompareStat stats={formatteds} title="Weight" objKey="weight" />
+          <CompareStat stats={formatteds} title="Damage" objKey="damage" />
+          <CompareStat stats={formatteds} title="Flee Rate" objKey="fleeRate" />
+          <CompareStat stats={formatteds} title="Max CP" objKey="maxCP" />
+          <CompareStat stats={formatteds} title="Max HP" objKey="maxHP" />
+          <CompareStat stats={formatteds} title="Classification" objKey="classification" />
         </Inner>
       </ScrollableWrapper>
     </Wrapper>
