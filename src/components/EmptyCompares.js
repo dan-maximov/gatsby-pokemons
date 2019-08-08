@@ -17,7 +17,7 @@ const Image = styled.img`
 const EmptyState = () => (
   <Wrapper>
     <div>
-      <Image src="./EmptyCompares.png" alt="Giant Charmander attacks Bikini Bottom" />
+      <Image src="/EmptyCompares.png" alt="Giant Charmander attacks Bikini Bottom" />
     </div>
     <p>Pokemons to compare was not found</p>
   </Wrapper>

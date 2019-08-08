@@ -17,7 +17,7 @@ const Image = styled.img`
 const EmptyState = () => (
   <Wrapper>
     <div>
-      <Image src="./EmptyFavorites.png" alt="crying pikachu" />
+      <Image src="/EmptyFavorites.png" alt="crying pikachu" />
     </div>
     <p>Favorite pokemons was not found</p>
   </Wrapper>

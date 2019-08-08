@@ -27,7 +27,7 @@ const NotFoundPage = () => (
     <SEO title="404: Not found" />
     <h2>Page was not found</h2>
     <ImageWrapper>
-      <img src="./404.jpg" alt="Snivy" />
+      <img src="/404.jpg" alt="Snivy" />
     </ImageWrapper>
   </Wrapper>
 );

@@ -50,7 +50,7 @@ const Header = () => (
   <Wrapper>
     <Inner>
       <LinkToHome to="/">
-        <Logo src="./logo.png" alt="site logo" />
+        <Logo src="/logo.png" alt="site logo" />
         <LinkText>PokeList</LinkText>
       </LinkToHome>
       <LinkToFavorites to="/favorites">
