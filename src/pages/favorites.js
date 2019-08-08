@@ -10,7 +10,7 @@ import EmptyFavorites from '../components/EmptyFavorites';
 const query = graphql`
   query {
     pokeApi {
-      pokemons(first: 150) {
+      pokemons(first: 151) {
         ...PokemonCard
       }
     }

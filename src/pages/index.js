@@ -6,7 +6,7 @@ import PokemonsList from '../components/PokemonsList';
 const query = graphql`
   query {
     pokeApi {
-      pokemons(first: 150) {
+      pokemons(first: 151) {
         ...PokemonCard
       }
     }
