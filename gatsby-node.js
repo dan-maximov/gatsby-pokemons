@@ -1,6 +1,6 @@
 const path = require('path');
 
-const POKEMONS_QUANTITY = process.env.LIMITED ? 20 : 150;
+const POKEMONS_QUANTITY = process.env.LIMITED ? 20 : 151;
 
 exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
