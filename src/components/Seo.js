@@ -19,7 +19,7 @@ const SEO = ({ description, lang, meta, title, image }) => {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage = image || './pokeball.jpeg';
+  const metaImage = image || './pokemon.png';
 
   return (
     <Helmet
@@ -28,6 +28,13 @@ const SEO = ({ description, lang, meta, title, image }) => {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
+      link={[
+        {
+          rel: 'shortcut icon',
+          href: '/favicon.ico',
+          type: 'image/x-icon',
+        },
+      ]}
       meta={[
         {
           name: 'description',
