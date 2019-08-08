@@ -15,9 +15,6 @@ const InfinityScrollObserver = ({ max, current, increaseQuantity, increaseFunc }
       entries =>
         entries.forEach(({ isIntersecting }) => {
           if (isIntersecting) {
-            console.log('increased');
-            console.log('prev', current);
-            console.log('new', current + increaseQuantity > max ? max : current + increaseQuantity);
             if (current + increaseQuantity >= max) {
               increaseFunc(max);
               observer.current = observer.current.disconnect();
