@@ -17,6 +17,13 @@ const Wrapper = styled.div`
   cursor: pointer;
 `;
 
+const Placeholder = styled.div`
+  height: 18px;
+  padding: 2px 6px;
+
+  cursor: pointer;
+`;
+
 const Text = styled.span`
   margin-left: 6px;
 `;
@@ -25,7 +32,7 @@ const AddToCompares = ({ add, del, id, inCompares }) => {
   const client = useAvoidHydrate();
 
   if (!client) {
-    return null;
+    return <Placeholder />;
   }
 
   const text = inCompares ? 'In Compares' : 'Add to Compares';
