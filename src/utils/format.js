@@ -25,7 +25,7 @@ export default undefined;
 
 const dashOrInfo = (o, callback) => {
   if (!o) {
-    return '一';
+    return 'ꟷ';
   }
 
   return callback(o);
