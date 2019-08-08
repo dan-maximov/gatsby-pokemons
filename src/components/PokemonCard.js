@@ -62,13 +62,22 @@ const Title = styled.div`
   }
 `;
 
+const PokeNumber = styled.span`
+  @media (max-width: 666px) {
+    display: none;
+  }
+`;
+
 const PokemonCard = ({ data, ...props }) => (
   <Card to={`/${data.id}`} {...props}>
     <ImageWrapper>
       <Image src={data.image} alt={data.name} />
     </ImageWrapper>
     <Title>
-      <p>{`${data.name} - ${data.number}`}</p>
+      <p>
+        <span>{data.name}</span>
+        <PokeNumber>{` - ${data.number}`}</PokeNumber>
+      </p>
       <div>
         <span role="img" aria-label="fist">
           👊
