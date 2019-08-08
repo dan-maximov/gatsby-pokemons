@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { FaChevronDown } from 'react-icons/fa';
+import { FaChevronUp } from 'react-icons/fa';
 
 const Header = styled.label`
   display: flex;
@@ -20,7 +20,7 @@ const Content = styled.div`
   padding: 0 16px 16px;
 `;
 
-const Chevron = styled(FaChevronDown)`
+const Chevron = styled(FaChevronUp)`
   transform: rotate(180deg);
 
   transition: transform 100ms linear;
