@@ -58,6 +58,7 @@ const Classification = styled.h2`
 const Buttons = styled.div`
   display: flex;
   margin-top: 16px;
+  font-size: 14px;
 `;
 
 const PokemonPage = ({ pokemon }) => {
