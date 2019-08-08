@@ -26,9 +26,6 @@ const Head = styled.div`
 
 const Footer = styled.div`
   padding-top: 16px;
-  @media (max-width: 800px) {
-    padding: 16px 16px 0;
-  }
 `;
 
 const ImageWrapper = styled.div`
