@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import styled, { css } from 'styled-components';
+import LazyImage from './LazyImage';
 import DamageDifference, { damageDifferencePropTypes } from './DamageDifference';
 
 const widthStyle = css`
@@ -42,7 +43,7 @@ const ImageWrapper = styled.div`
   padding-bottom: 100%;
 `;
 
-const Image = styled.img`
+const Image = styled(LazyImage)`
   position: absolute;
   max-height: 90%;
   max-width: 90%;

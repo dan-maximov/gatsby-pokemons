@@ -9,6 +9,7 @@
     "no-confusing-arrow": 0,
     "import/prefer-default-export": 0,
     "max-len": [2, { "code": 140, "tabWidth": 2, "ignoreUrls": true }],
-    "operator-linebreak": 0
+    "operator-linebreak": 0,
+    "global-require": 0
   }
 }

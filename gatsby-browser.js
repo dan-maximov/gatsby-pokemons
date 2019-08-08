@@ -1,5 +1,7 @@
+/* global window */
 const { wrapPageElement, wrapRootElement } = require('./src/wrap');
 
-exports.wrapPageElement = wrapPageElement;
+if (!window.IntersectionObserver) require('intersection-observer');
 
+exports.wrapPageElement = wrapPageElement;
 exports.wrapRootElement = wrapRootElement;
