@@ -19,6 +19,15 @@ const Wrapper = styled.div`
   cursor: pointer;
 `;
 
+const Placeholder = styled.div`
+  width: 128px;
+  height: 18px;
+  padding: 2px 6px;
+  padding-left: 0;
+
+  cursor: pointer;
+`;
+
 const Text = styled.span`
   margin-left: 6px;
 `;
@@ -27,7 +36,7 @@ const AddToFavorites = ({ add, del, id, inFavorites }) => {
   const client = useAvoidHydrate();
 
   if (!client) {
-    return null;
+    return <Placeholder />;
   }
 
   const text = inFavorites ? 'In favorites' : 'Add to favorites';
