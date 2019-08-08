@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-pokemon-test",
+  "name": "gatsby-pokemon",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Frontend for pokemon GraphQL api built on Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Danila Maximov <mr.quze@gmail.com>",
   "dependencies": {
     "gatsby": "^2.13.51",
     "gatsby-plugin-manifest": "^2.2.4",
@@ -48,10 +48,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/meatspincom/gatsby-pokemons"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/meatspincom/gatsby-pokemons/issues"
   },
   "husky": {
     "hooks": {
