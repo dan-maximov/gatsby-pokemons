@@ -53,6 +53,7 @@ const ScrollableWrapper = styled.div`
 const Inner = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 `;
 
 const Image = styled.img`
