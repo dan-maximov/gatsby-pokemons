@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useReducer, useEffect } from 'react';
 
 export default () => {
-  const [client, rerender] = useState(false);
-  useEffect(() => rerender(!client), []);
+  const [client, rerender] = useReducer(a => !a, false);
+  useEffect(rerender, []);
   return client;
 };
