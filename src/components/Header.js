@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { FaHeart, FaCalendarAlt } from 'react-icons/fa';
-import pika from './pikachu.png';
 
 const Wrapper = styled.header`
   position: fixed;
@@ -51,7 +50,7 @@ const Header = () => (
   <Wrapper>
     <Inner>
       <LinkToHome to="/">
-        <Logo src={pika} alt="site logo" />
+        <Logo src="./logo.png" alt="site logo" />
         <LinkText>PokeList</LinkText>
       </LinkToHome>
       <LinkToFavorites to="/favorites">

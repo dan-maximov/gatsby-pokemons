@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import img from './EmptyCompares.png';
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,7 +17,7 @@ const Image = styled.img`
 const EmptyState = () => (
   <Wrapper>
     <div>
-      <Image src={img} alt="Giant Charmander attacks Bikini Bottom" />
+      <Image src="./EmptyCompares.png" alt="Giant Charmander attacks Bikini Bottom" />
     </div>
     <p>Pokemons to compare was not found</p>
   </Wrapper>

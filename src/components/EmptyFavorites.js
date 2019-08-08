@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import img from './EmptyFavorites.png';
 
 const Wrapper = styled.div`
   display: flex;
@@ -18,7 +17,7 @@ const Image = styled.img`
 const EmptyState = () => (
   <Wrapper>
     <div>
-      <Image src={img} alt="crying pikachu" />
+      <Image src="./EmptyFavorites.png" alt="crying pikachu" />
     </div>
     <p>Favorite pokemons was not found</p>
   </Wrapper>
