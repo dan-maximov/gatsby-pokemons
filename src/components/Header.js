@@ -22,7 +22,7 @@ const Inner = styled.div`
 
 const Logo = styled.img`
   height: 36px;
-  width: auto;
+  width: 28.66px;
 `;
 
 const LinkToHome = styled(Link)`
