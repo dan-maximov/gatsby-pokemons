@@ -9,7 +9,7 @@ const Title = styled.p`
   color: #9e9e9e;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.tr`
   margin: 8px 0;
 `;
 
@@ -17,7 +17,7 @@ const Row = styled.div`
   display: flex;
 `;
 
-const Cell = styled.div`
+const Cell = styled.td`
   min-width: ${CELL_WIDTH}px;
   max-width: ${CELL_WIDTH}px;
 `;

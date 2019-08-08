@@ -9,6 +9,20 @@ const GlobalStyle = createGlobalStyle`
   h1,h2,p {
     margin: 0;
   }
+  
+  table,
+  tr,
+  td,
+  tbody,
+  thead {
+    margin:0;
+    padding:0;
+    background:none;
+    border:none;
+    border-collapse:collapse;
+    border-spacing:0;
+    background-image:none;
+  }
 `;
 
 // eslint-disable-next-line react/prop-types

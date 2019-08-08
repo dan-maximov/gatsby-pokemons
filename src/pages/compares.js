@@ -41,7 +41,7 @@ const Wrapper = styled.div`
   max-height: calc(100vh - 133px);
 `;
 
-const ScrollableWrapper = styled.div`
+const ScrollableWrapper = styled.table`
   display: flex;
   flex-direction: column;
   padding: 0 16px;
@@ -51,7 +51,7 @@ const ScrollableWrapper = styled.div`
   max-height: calc(100vh - 133px);
 `;
 
-const Inner = styled.div`
+const Inner = styled.tbody`
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -64,7 +64,7 @@ const Image = styled.img`
   width: auto;
 `;
 
-const Head = styled.div`
+const Head = styled.thead`
   display: flex;
 `;
 
@@ -107,14 +107,18 @@ const Compares = ({ compare }) => {
       <Title>Compare pokemons</Title>
       <ScrollableWrapper>
         <Head>
-          {pokemons.map(p => (
-            <HeadCard key={p.name} to={`/${p.id}`}>
-              <div>
-                <Image src={p.image} alt={p.name} />
-              </div>
-              <p>{p.name}</p>
-            </HeadCard>
-          ))}
+          <tr>
+            {pokemons.map(p => (
+              <td>
+                <HeadCard key={p.name} to={`/${p.id}`}>
+                  <div>
+                    <Image src={p.image} alt={p.name} />
+                  </div>
+                  <p>{p.name}</p>
+                </HeadCard>
+              </td>
+            ))}
+          </tr>
         </Head>
         <Inner style={{ width: pokemons.length * CELL_WIDTH }}>
           <CompareStat stats={formatteds} title="Height" objKey="height" />
