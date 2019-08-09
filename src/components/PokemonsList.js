@@ -34,7 +34,7 @@ const PokemonsList = ({ pokemons, EmptyState, title, home }) => {
     );
   }
 
-  const initialValue = home && window && window.__listScrolled__ ? window.__listScrolled__ : 20;
+  const initialValue = home && typeof window !== 'undefined' && window.__listScrolled__ ? window.__listScrolled__ : 20;
   const [displayableQuantity, setDisplayableQuantity] = useState(initialValue);
 
   useEffect(() => {
