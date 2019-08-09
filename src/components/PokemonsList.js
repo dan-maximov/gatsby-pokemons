@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* global window */
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Pokemon, { CardPlaceholder, pokeCardPropTypes } from './PokemonCard';
@@ -21,7 +22,7 @@ const Inner = styled.div`
 
 const placeholdersArray = new Array(4).fill().map((_, i) => i + 1234);
 
-const PokemonsList = ({ pokemons, EmptyState, title }) => {
+const PokemonsList = ({ pokemons, EmptyState, title, home }) => {
   if (pokemons.length === 0) {
     return (
       <Wrapper>
@@ -33,7 +34,12 @@ const PokemonsList = ({ pokemons, EmptyState, title }) => {
     );
   }
 
-  const [displayableQuantity, setDisplayableQuantity] = useState(20);
+  const initialValue = home && typeof window !== 'undefined' && window.__listScrolled__ ? window.__listScrolled__ : 20;
+  const [displayableQuantity, setDisplayableQuantity] = useState(initialValue);
+
+  useEffect(() => {
+    if (home) window.__listScrolled__ = displayableQuantity;
+  }, [displayableQuantity]);
 
   return (
     <Wrapper>
@@ -60,11 +66,13 @@ PokemonsList.propTypes = {
   pokemons: PropTypes.arrayOf(pokeCardPropTypes).isRequired,
   EmptyState: PropTypes.oneOfType([PropTypes.func, PropTypes.symbol]),
   title: PropTypes.node,
+  home: PropTypes.bool,
 };
 
 PokemonsList.defaultProps = {
   EmptyState: React.Fragment,
   title: undefined,
+  home: false,
 };
 
 export default PokemonsList;
