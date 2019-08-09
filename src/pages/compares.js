@@ -12,7 +12,7 @@ import SEO from '../components/Seo';
 const query = graphql`
   query {
     pokeApi {
-      pokemons(first: 150) {
+      pokemons(first: 151) {
         id
         name
         number
