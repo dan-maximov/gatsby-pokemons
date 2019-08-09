@@ -18,7 +18,7 @@ const IndexPage = () => {
   return (
     <>
       <SEO title="PokeList - Pokemons Catalog" />
-      <PokemonsList pokemons={data.pokeApi.pokemons} />
+      <PokemonsList pokemons={data.pokeApi.pokemons} home />
     </>
   );
 };
