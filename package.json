@@ -49,7 +49,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "jest --collect-coverage --coverageReporters=text-lcov | coveralls"
+    "test": "jest",
+    "test:ci": "jest --collect-coverage --coverageReporters=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
