@@ -6,4 +6,4 @@ cache:
     - node_modules
 script:
   - npm test
-  - npm build
+  - LIMITED=1 npm run-script build
