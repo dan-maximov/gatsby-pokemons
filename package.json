@@ -25,13 +25,16 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
+    "babel-jest": "^24.8.0",
     "babel-plugin-styled-components": "^1.10.6",
+    "babel-preset-gatsby": "^0.2.8",
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "husky": "^3.0.2",
+    "jest": "^24.8.0",
     "lint-staged": "^9.2.1",
     "prettier": "^1.18.2"
   },
@@ -45,7 +48,7 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -63,6 +66,7 @@
     "*.js": [
       "node_modules/.bin/eslint",
       "prettier --write",
+      "jest ./src",
       "git add"
     ]
   }
