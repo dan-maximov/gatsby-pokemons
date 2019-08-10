@@ -23,12 +23,21 @@ const LazyImage = ({ src, alt, ...props }) => {
   const image = useRef(null);
   const observer = useRef(null);
 
+  const setSrc = () => {
+    image.current.src = src;
+  };
+
   useEffect(() => {
     observer.current = new IntersectionObserver(entries =>
       entries.forEach(
         ({ isIntersecting }) => {
           if (isIntersecting) {
-            image.current.src = src;
+            if (document.readyState === 'complete') {
+              setSrc();
+            } else {
+              document.addEventListener('load', setSrc);
+            }
+
             observer.current = observer.current.disconnect();
           }
         },
