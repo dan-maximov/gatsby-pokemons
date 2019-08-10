@@ -19,13 +19,16 @@ const findEstDmgReducer = n => (previous, current) => {
 
 const findEstDmg = (n, obj) => Object.values(obj).reduce(findEstDmgReducer(n), -1);
 
-export const damageDiff = o => `${findEstDmg(SMALLEST, o)} - ${findEstDmg(HIGHEST, o)}`;
+export const dash = 'ꟷ';
 
-export default undefined;
+export const damageDiff = o =>
+  o && Array.isArray(o.fast) && Array.isArray(o.special)
+    ? `${findEstDmg(SMALLEST, o)} - ${findEstDmg(HIGHEST, o)}`
+    : dash;
 
 const dashOrInfo = (o, callback) => {
   if (!o) {
-    return 'ꟷ';
+    return dash;
   }
 
   return callback(o);
