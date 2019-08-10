@@ -6,4 +6,3 @@ cache:
     - node_modules
 script:
   - npm run-script test:ci
-  - LIMITED=1 npm run-script build
