@@ -13,6 +13,22 @@
     "global-require": 0,
     "no-underscore-dangle": 0
   },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["components", "./src/components"],
+          ["pages", "./src/pages"],
+          ["store", "./src/store"],
+          ["templates", "./src/templates"],
+          ["utils", "./src/utils"],
+          ["hooks", "./src/hooks"],
+          ["types", "./src/types"],
+        ],
+        "extensions": [".ts", ".js", ".jsx", ".tsx"]
+      }
+    },
+  },
   "env": {
     "jest": true
   }
