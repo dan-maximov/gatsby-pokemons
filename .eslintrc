@@ -1,5 +1,5 @@
 {
-  "parser": "@typescript-eslint/parser", // Specifies the ESLint parser
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -31,45 +31,11 @@
     "@typescript-eslint/explicit-function-return-type": "off"
   },
   "overrides": [
-    // Override some TypeScript rules just for .js files
     {
       "files": ["*.js"],
       "rules": {
-        "@typescript-eslint/no-var-requires": "off" //
+        "@typescript-eslint/no-var-requires": "off"
       }
     }
   ]
-  // "parser": "babel-eslint",
-  // "extends": "airbnb",
-  // "rules": {
-  //   "react/jsx-filename-extension": 0,
-  //   "object-curly-newline": 0,
-  //   "arrow-parens": 0,
-  //   "implicit-arrow-linebreak": 0,
-  //   "no-confusing-arrow": 0,
-  //   "import/prefer-default-export": 0,
-  //   "max-len": [2, { "code": 140, "tabWidth": 2, "ignoreUrls": true }],
-  //   "operator-linebreak": 0,
-  //   "global-require": 0,
-  //   "no-underscore-dangle": 0
-  // },
-  // "settings": {
-  //   "import/resolver": {
-  //     "alias": {
-  //       "map": [
-  //         ["components", "./src/components"],
-  //         ["pages", "./src/pages"],
-  //         ["store", "./src/store"],
-  //         ["templates", "./src/templates"],
-  //         ["utils", "./src/utils"],
-  //         ["hooks", "./src/hooks"],
-  //         ["types", "./src/types"],
-  //       ],
-  //       "extensions": [".ts", ".js", ".jsx", ".tsx"]
-  //     }
-  //   },
-  // },
-  // "env": {
-  //   "jest": true
-  // }
 }
