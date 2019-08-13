@@ -5,7 +5,7 @@
     "target": "ESNext",
     "module": "ESNext",
     "lib": ["dom"],
-    "jsx": "preserve",
+    "jsx": "react",
     "moduleResolution": "node",
     //required
     "allowJs": true,

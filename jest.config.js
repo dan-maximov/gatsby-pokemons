@@ -1,6 +1,5 @@
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
   transform: {
     '^.+\\.jsx?$': '<rootDir>/jest-preprocess.js',
   },
