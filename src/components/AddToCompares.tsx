@@ -61,7 +61,7 @@ const AddToCompares = ({ add, del, id, inCompares }: Props) => {
   );
 };
 
-const selector = createStructuredSelector<Store, IOwnProps, IConnectedStore>({
+const selector = createStructuredSelector<Store, OwnProps, ConnectedStore>({
   inCompares: selectors.inCompares,
 });
 
@@ -70,7 +70,7 @@ const action = {
   del: actions.deleteFromCompares,
 };
 
-const enhance = connect<IOwnProps, {}, Store, IConnectedStore>(
+const enhance = connect<OwnProps, {}, Store, ConnectedStore>(
   selector,
   action,
 );
