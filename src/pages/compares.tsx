@@ -58,9 +58,7 @@ const Inner = styled.tbody`
 `;
 
 const Image = styled.img`
-  max-width: 50px;
-  max-height: 50px;
-  height: auto;
+  height: 50px;
   width: auto;
 `;
 
