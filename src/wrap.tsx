@@ -27,11 +27,10 @@ const GlobalStyle = createGlobalStyle`
 
 interface Props {
   element: React.ReactNode;
-  props: any;
 }
 
-export const wrapPageElement: React.FC = ({ element, props }) => <Layout {...props}>{element}</Layout>;
-export const wrapRootElement: React.FC = ({ element }) => (
+export const wrapPageElement: React.FC<Props> = ({ element }) => <Layout>{element}</Layout>;
+export const wrapRootElement: React.FC<Props> = ({ element }) => (
   <>
     <Normalize />
     <GlobalStyle />
