@@ -1,4 +1,4 @@
-const { wrapPageElement, wrapRootElement } = require('./src/wrap.tsx');
+const { wrapPageElement, wrapRootElement } = require('./src/wrap');
 
 exports.wrapPageElement = wrapPageElement;
 exports.wrapRootElement = wrapRootElement;

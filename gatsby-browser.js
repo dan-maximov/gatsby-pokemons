@@ -1,4 +1,4 @@
-const { wrapPageElement, wrapRootElement } = require('./src/wrap.tsx');
+const { wrapPageElement, wrapRootElement } = require('./src/wrap');
 
 if (!window.IntersectionObserver) require('intersection-observer');
 
