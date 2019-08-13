@@ -29,20 +29,5 @@ module.exports = {
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
-    // {
-    //   resolve: 'gatsby-plugin-alias-imports',
-    //   options: {
-    //     alias: {
-    //       components: 'src/components',
-    //       pages: 'src/pages',
-    //       store: 'src/store',
-    //       templates: 'src/templates',
-    //       utils: 'src/utils',
-    //       hooks: 'src/hooks',
-    //       types: 'src/types',
-    //     },
-    //     extensions: ['js', 'tsx', 'ts'],
-    //   },
-    // },
   ],
 };
