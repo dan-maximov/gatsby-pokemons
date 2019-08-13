@@ -1,17 +1,17 @@
 import React from 'react';
-import Attack from 'components/Attack';
-import { IAttack } from 'types/Pokemon';
+import AttackComponent from 'components/Attack';
+import { Attack } from 'types/Pokemon';
 
-interface IProps {
+interface Props {
   title: string;
-  attacks: IAttack[];
+  attacks: Attack[];
 }
 
-const AttackList = ({ title, attacks }: IProps) => (
+const AttackList: React.FC<Props> = ({ title, attacks }) => (
   <>
     <h2>{title}</h2>
     {attacks.map(a => (
-      <Attack attack={a} key={a.name} />
+      <AttackComponent attack={a} key={a.name} />
     ))}
   </>
 );

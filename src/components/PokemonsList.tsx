@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Pokemon, { CardPlaceholder } from 'components/PokemonCard';
+import PokemonCard, { CardPlaceholder } from 'components/PokemonCard';
 import InfinityScrollObserver from 'components/InfinityScrollObserver';
-import { IPokemon } from 'types/Pokemon';
+import { Pokemon } from 'types/Pokemon';
 
 const Wrapper = styled.div`
   padding-top: 16px;
@@ -22,20 +21,20 @@ const Inner = styled.div`
 
 const placeholdersArray = new Array(4).fill(undefined).map((_, i) => i + 1234);
 
-interface ICustomWindow extends Window {
+interface CustomWindow extends Window {
   __listScrolled__: number;
 }
 
-declare const window: ICustomWindow;
+declare const window: CustomWindow;
 
-interface IProps {
-  pokemons: IPokemon[];
+interface Props {
+  pokemons: Pokemon[];
   EmptyState?: React.FC;
   title?: string | React.ReactNode;
   home?: boolean;
 }
 
-const PokemonsList = ({ pokemons, EmptyState, title, home = false }: IProps) => {
+const PokemonsList: React.FC<Props> = ({ pokemons, EmptyState, title, home = false }) => {
   if (pokemons.length === 0) {
     return (
       <Wrapper>
@@ -59,7 +58,7 @@ const PokemonsList = ({ pokemons, EmptyState, title, home = false }: IProps) => 
       {title}
       <Inner>
         {pokemons.slice(0, displayableQuantity).map(pokemon => (
-          <Pokemon key={pokemon.id} data={pokemon} />
+          <PokemonCard key={pokemon.id} data={pokemon} />
         ))}
         {placeholdersArray.map(i => (
           <CardPlaceholder key={i} />

@@ -1,4 +1,3 @@
-/* global document IntersectionObserver */
 import React, { useRef, useEffect, useReducer } from 'react';
 import styled, { css } from 'styled-components';
 
@@ -12,21 +11,21 @@ const loadedStyle = css`
   opacity: 1;
 `;
 
-interface IImageProps {
+interface ImageProps {
   loaded: boolean;
 }
 
 const Image = styled.img`
   transition: 0.3s opacity linear;
-  ${({ loaded }: IImageProps) => (loaded ? loadedStyle : unloadedStyle)}
+  ${({ loaded }: ImageProps) => (loaded ? loadedStyle : unloadedStyle)}
 `;
 
-interface IProps {
+interface Props {
   src: string;
   alt: string;
 }
 
-const LazyImage = ({ src, alt, ...props }: IProps) => {
+const LazyImage: React.FC<Props> = ({ src, alt, ...props }) => {
   const [loaded, handleLoaded] = useReducer(a => !a, false);
   const image = useRef<HTMLImageElement>(null);
   const observer = useRef<IntersectionObserver | null>(null);

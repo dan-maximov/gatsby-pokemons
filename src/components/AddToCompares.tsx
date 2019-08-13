@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { FaToggleOff, FaToggleOn } from 'react-icons/fa';
 
 import { connect } from 'unistore/react';
-import { createStructuredSelector, OutputParametricSelector } from 'reselect';
+import { createStructuredSelector } from 'reselect';
 import { actions, selectors } from 'store';
 import useAvoidHydrate from 'hooks/useAvoidHydrate';
-import { IStore } from 'types/Store';
+import { Store } from 'types/Store';
 
 const Wrapper = styled.div`
   display: flex;
@@ -28,20 +28,20 @@ const Text = styled.span`
   margin-left: 6px;
 `;
 
-interface IOwnProps {
+interface OwnProps {
   id: string;
 }
 
-interface IConnectedStore {
+interface ConnectedStore {
   inCompares: boolean;
 }
 
-interface IConnectedActions {
+interface ConnectedActions {
   add?(id: string): void;
   del?(id: string): void;
 }
 
-type Props = IOwnProps & IConnectedStore & IConnectedActions;
+type Props = OwnProps & ConnectedStore & ConnectedActions;
 
 const AddToCompares = ({ add, del, id, inCompares }: Props) => {
   const client = useAvoidHydrate();
@@ -61,7 +61,7 @@ const AddToCompares = ({ add, del, id, inCompares }: Props) => {
   );
 };
 
-const selector = createStructuredSelector<IStore, IOwnProps, IConnectedStore>({
+const selector = createStructuredSelector<Store, IOwnProps, IConnectedStore>({
   inCompares: selectors.inCompares,
 });
 
@@ -70,7 +70,7 @@ const action = {
   del: actions.deleteFromCompares,
 };
 
-const enhance = connect<IOwnProps, {}, IStore, IConnectedStore>(
+const enhance = connect<IOwnProps, {}, Store, IConnectedStore>(
   selector,
   action,
 );

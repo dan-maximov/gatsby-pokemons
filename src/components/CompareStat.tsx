@@ -21,13 +21,17 @@ const Cell = styled.td`
   max-width: ${CELL_WIDTH}px;
 `;
 
-interface IProps {
+interface Stat {
+  [key: string]: string;
+}
+
+interface Props {
   title: string;
-  stats: Array<{ [key: string]: string }>;
+  stats: Stat[];
   objKey: string;
 }
 
-const Stat = ({ title, stats, objKey }: IProps) => (
+const Stat: React.FC<Props> = ({ title, stats, objKey }) => (
   <Wrapper>
     <Title>{title}</Title>
     <Row>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaSkull } from 'react-icons/fa';
-import { IAttack } from 'types/Pokemon';
+import { Attack as AttackT } from 'types/Pokemon';
 
 const Wrapper = styled.div`
   display: flex;
@@ -25,11 +25,11 @@ const Damage = styled.p`
   font-weight: bold;
 `;
 
-interface IProps {
-  attack: IAttack;
+interface Props {
+  attack: AttackT;
 }
 
-const Attack = ({ attack }: IProps) => (
+const Attack: React.FC<Props> = ({ attack }) => (
   <Wrapper>
     <div>
       <p>{attack.name}</p>

@@ -20,16 +20,16 @@ import {
 import styled from 'styled-components';
 import { IconType } from 'react-icons/lib/cjs';
 
-interface IIcon {
+interface Icon {
   icon: IconType;
   color: string;
 }
 
-interface IType {
-  [index: string]: IIcon;
+interface Type {
+  [index: string]: Icon;
 }
 
-const types: IType = {
+const types: Type = {
   Water: {
     icon: FaWater,
     color: '#1E88E5',
@@ -107,7 +107,7 @@ const types: IType = {
 const Bage = styled.div`
   display: flex;
   padding: 3px 6px;
-  background-color: ${({ name }: IProps) => types[name].color};
+  background-color: ${({ name }: Props) => types[name].color};
   border-radius: 10px;
   color: #fff;
 `;
@@ -116,21 +116,21 @@ const Name = styled.span`
   margin-left: 3px;
 `;
 
-interface IProps {
+interface Props {
   name: string;
 }
 
-const Type = ({ name }: IProps) => (
+const Type: React.FC<Props> = ({ name }) => (
   <Bage name={name}>
     <Icon I={types[name].icon} />
     <Name>{name}</Name>
   </Bage>
 );
 
-interface IIconProps {
+interface IconProps {
   I: IconType;
 }
 // eslint-disable-next-line react/prop-types
-const Icon = ({ I }: IIconProps) => <I color="#fff" />;
+const Icon: React.FC<IconProps> = ({ I }) => <I color="#fff" />;
 
 export default Type;

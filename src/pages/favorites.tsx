@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import { connect } from 'unistore/react';
 import styled from 'styled-components';
 import SEO from 'components/Seo';
 import PokemonsList from 'components/PokemonsList';
 import EmptyFavorites from 'components/EmptyFavorites';
-import { IPokemon } from 'types/Pokemon';
+import { Pokemon } from 'types/Pokemon';
 
 const query = graphql`
   query {
@@ -22,13 +21,13 @@ const Title = styled.h2`
   padding: 0 16px;
 `;
 
-interface IProps {
+interface Props {
   favorite: string[];
 }
 
-const Favorites = ({ favorite }: IProps) => {
+const Favorites: React.FC<Props> = ({ favorite }) => {
   const data = useStaticQuery(query);
-  const pokemons = data.pokeApi.pokemons.filter(({ id }: IPokemon) => favorite.includes(id));
+  const pokemons = data.pokeApi.pokemons.filter(({ id }: Pokemon) => favorite.includes(id));
 
   return (
     <>
@@ -38,6 +37,6 @@ const Favorites = ({ favorite }: IProps) => {
   );
 };
 
-const enhance = connect<IProps, {}, {}, IProps>('favorite');
+const enhance = connect<Props, {}, {}, Props>('favorite');
 
 export default enhance(Favorites);

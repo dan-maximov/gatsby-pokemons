@@ -1,11 +1,11 @@
 // eslint-disable no-unused-vars
 
-import { IAttack, IAttacks, IRange, IEvolutionRequirements, IPokemon } from 'types/Pokemon';
+import { Attack, Attacks, Range, EvolutionRequirements, Pokemon } from 'types/Pokemon';
 
 const SMALLEST = 1;
 const HIGHEST = 2;
 
-const findEstDmgReducer = (n: number) => (previous: number, current: IAttack): number => {
+const findEstDmgReducer = (n: number) => (previous: number, current: Attack): number => {
   if (Array.isArray(current)) {
     return current.reduce(findEstDmgReducer(n), previous);
   }
@@ -21,11 +21,11 @@ const findEstDmgReducer = (n: number) => (previous: number, current: IAttack): n
   return Math.max(previous, current.damage);
 };
 
-const findEstDmg = (n: number, obj: IAttacks) => Object.values(obj).reduce(findEstDmgReducer(n), -1);
+const findEstDmg = (n: number, obj: Attacks) => Object.values(obj).reduce(findEstDmgReducer(n), -1);
 
 export const dash = 'ꟷ';
 
-export const damageDiff = (o: IAttacks) =>
+export const damageDiff = (o: Attacks) =>
   o && Array.isArray(o.fast) && Array.isArray(o.special)
     ? `${findEstDmg(SMALLEST, o)} - ${findEstDmg(HIGHEST, o)}`
     : dash;
@@ -38,20 +38,20 @@ const dashOrInfo = <T>(o: T, callback: (p: T) => string) => {
   return callback(o);
 };
 
-interface IAdaptedPokemon {
+interface AdaptedPokemon {
   [key: string]: string;
 }
 
-export const adapt = (pokemon: IPokemon) => {
-  const obj: IAdaptedPokemon = {};
+export const adapt = (pokemon: Pokemon) => {
+  const obj: AdaptedPokemon = {};
 
-  obj.height = dashOrInfo<IRange>(pokemon.height, o => `${o.minimum} - ${o.maximum}`);
-  obj.weight = dashOrInfo<IRange>(pokemon.weight, o => `${o.minimum} - ${o.maximum}`);
-  obj.damage = dashOrInfo<IAttacks>(pokemon.attacks, o => damageDiff(o));
+  obj.height = dashOrInfo<Range>(pokemon.height, o => `${o.minimum} - ${o.maximum}`);
+  obj.weight = dashOrInfo<Range>(pokemon.weight, o => `${o.minimum} - ${o.maximum}`);
+  obj.damage = dashOrInfo<Attacks>(pokemon.attacks, o => damageDiff(o));
   obj.fleeRate = dashOrInfo<number>(pokemon.fleeRate, o => `${Math.floor(o * 100)}%`);
   obj.maxCP = dashOrInfo<number>(pokemon.maxCP, o => `${o} CP`);
   obj.maxHP = dashOrInfo<number>(pokemon.maxHP, o => `${o} HP`);
-  obj.evolutionRequirements = dashOrInfo<IEvolutionRequirements>(
+  obj.evolutionRequirements = dashOrInfo<EvolutionRequirements>(
     pokemon.evolutionRequirements,
     o => `${o.amount} ${o.name}`,
   );

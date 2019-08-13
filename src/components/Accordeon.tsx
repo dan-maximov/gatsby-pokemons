@@ -37,12 +37,11 @@ const HiddenCheckbox = styled.input`
   }
 `;
 
-interface IProps {
+interface Props {
   title: string;
-  children: React.ReactNode;
 }
 
-const Accordeon = ({ title, children }: IProps) => (
+const Accordeon: React.FC<Props> = ({ title, children }) => (
   <>
     <HiddenCheckbox type="checkbox" id={title} />
     <Header htmlFor={title}>

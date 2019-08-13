@@ -10,7 +10,7 @@ import AddToFavorites from 'components/AddToFavorites';
 import AddToCompares from 'components/AddToCompares';
 import EvolutionsList from 'components/EvolutionsList';
 import Seo from 'components/Seo';
-import { IPokemon } from 'types/Pokemon';
+import { Pokemon } from 'types/Pokemon';
 
 const Head = styled.div`
   margin-top: 16px;
@@ -60,11 +60,11 @@ const Buttons = styled.div`
   font-size: 14px;
 `;
 
-interface IProps {
-  pokemon: IPokemon;
+interface Props {
+  pokemon: Pokemon;
 }
 
-const PokemonPage = ({ pokemon }: IProps) => {
+const PokemonPage: React.FC<Props> = ({ pokemon }) => {
   const formatted = adapt(pokemon);
 
   return (
@@ -162,17 +162,17 @@ export const query = graphql`
   }
 `;
 
-interface IHocProp {
+interface HocProp {
   data: {
-    pokeApi: {
-      pokemon: IPokemon;
-    };
+    pokeApi: Props;
   };
 }
 
-// eslint-disable-next-line react/prop-types
-const selector = (Component: React.FC<IProps>) => ({ data, ...props }: IHocProp) => (
-  <Component {...props} pokemon={data.pokeApi.pokemon} /> // eslint-disable-line react/prop-types
-);
+const selector = (
+  Component: React.FC<Props>,
+): React.FC<HocProp> => // eslint-disable react/display-name
+  function Selector({ data, ...props }) {
+    return <Component {...props} pokemon={data.pokeApi.pokemon} />;
+  };
 
 export default selector(PokemonPage);

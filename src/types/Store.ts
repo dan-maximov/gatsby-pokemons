@@ -1,4 +1,4 @@
-export interface IStore {
+export interface Store {
   favorite: string[];
   compare: string[];
 }

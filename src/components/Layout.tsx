@@ -11,11 +11,11 @@ const Wrapper = styled.div`
   min-height: calc(100vh - 78px);
 `;
 
-interface IProps {
+interface Props {
   children: React.ReactNode;
 }
 
-const Layout = ({ children }: IProps) => (
+const Layout: React.FC<Props> = ({ children }) => (
   <>
     <Header />
     <Wrapper>

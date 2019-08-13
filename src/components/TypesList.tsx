@@ -14,11 +14,11 @@ const Wrapper = styled.div`
   }
 `;
 
-interface IProps {
+interface Props {
   types: string[];
 }
 
-const TypesList = ({ types }: IProps) => (
+const TypesList: React.FC<Props> = ({ types }) => (
   <Wrapper>
     {types.map(t => (
       <Type name={t} key={t} />

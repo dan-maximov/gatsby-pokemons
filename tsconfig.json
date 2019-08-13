@@ -2,21 +2,32 @@
   "compilerOptions": {
     //required
     "baseUrl": "src",
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": ["dom"],
-    "jsx": "react",
+    "module": "commonjs",
+    "target": "esnext",
+    "jsx": "preserve",
+    "lib": ["dom", "esnext"],
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": false,
+    //required    
+
+
+    // "baseUrl": "src",
+    // "target": "ESNext",
+    // "module": "ESNext",
+    // "lib": ["dom"],
+    // "jsx": "react",
     "moduleResolution": "node",
-    //required
     "allowJs": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
+    // "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    // "strict": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
+    // "noEmit": true,
   },
-  "include": ["src"]
+  "exclude": ["node_modules", "public", ".cache"],
 }

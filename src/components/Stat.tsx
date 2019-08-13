@@ -18,12 +18,12 @@ const Dots = styled.div`
   border-bottom: 2px dotted #000;
 `;
 
-interface IProps {
+interface Props {
   title: string;
   value: React.ReactNode | string;
 }
 
-const Stat = ({ title, value }: IProps) => (
+const Stat: React.FC<Props> = ({ title, value }) => (
   <Wrapper>
     <Text>{title}</Text>
     <Dots />

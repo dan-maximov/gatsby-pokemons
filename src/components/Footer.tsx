@@ -2,7 +2,7 @@ import React from 'react';
 import { FaEnvelope, FaTwitter, FaGithub } from 'react-icons/fa';
 
 import styled, { css } from 'styled-components';
-import {} from 'styled-components/cssprop';
+import * as _ from 'styled-components/cssprop';
 
 const icon = css`
   margin-left: 6px;

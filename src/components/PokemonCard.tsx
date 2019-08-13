@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import styled, { css } from 'styled-components';
 import LazyImage from 'components/LazyImage';
 import DamageDifference from 'components/DamageDifference';
-import { IPokemon } from 'types/Pokemon';
+import { Pokemon } from 'types/Pokemon';
 
 const widthStyle = css`
   width: 23%;
@@ -78,11 +77,11 @@ const PokeNumber = styled.span`
   }
 `;
 
-interface IProps {
-  data: IPokemon;
+interface Props {
+  data: Pokemon;
 }
 
-const PokemonCard = ({ data, ...props }: IProps) => (
+const PokemonCard: React.FC<Props> = ({ data, ...props }) => (
   <Card to={`/${data.id}`} {...props}>
     <ImageWrapper>
       <noscript>

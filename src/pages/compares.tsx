@@ -7,7 +7,7 @@ import CompareStat, { CELL_WIDTH } from 'components/CompareStat';
 import EmptyState from 'components/EmptyCompares';
 import { adapt } from 'utils/format';
 import SEO from 'components/Seo';
-import { IPokemon } from 'types/Pokemon';
+import { Pokemon } from 'types/Pokemon';
 
 const query = graphql`
   query {
@@ -87,13 +87,13 @@ const Title = styled.h2`
   padding: 16px 16px 12px;
 `;
 
-interface IProps {
+interface Props {
   compare: string[];
 }
 
-const Compares = ({ compare }: IProps) => {
+const Compares: React.FC<Props> = ({ compare }) => {
   const data = useStaticQuery(query);
-  const pokemons: IPokemon[] = data.pokeApi.pokemons.filter(({ id }: IPokemon) => compare.includes(id));
+  const pokemons: Pokemon[] = data.pokeApi.pokemons.filter(({ id }: Pokemon) => compare.includes(id));
   const formatteds = pokemons.map(p => Object.assign(adapt(p), { name: p.name }));
 
   if (pokemons.length === 0) {
@@ -138,6 +138,6 @@ const Compares = ({ compare }: IProps) => {
   );
 };
 
-const enhance = connect<IProps, {}, {}, IProps>('compare');
+const enhance = connect<Props, {}, {}, Props>('compare');
 
 export default enhance(Compares);

@@ -6,7 +6,7 @@ import { connect } from 'unistore/react';
 import { createStructuredSelector } from 'reselect';
 import { actions, selectors } from '../store';
 import useAvoidHydrate from '../hooks/useAvoidHydrate';
-import { IStore } from 'types/Store';
+import { Store } from 'types/Store';
 
 const Wrapper = styled.div`
   display: flex;
@@ -32,20 +32,20 @@ const Text = styled.span`
   margin-left: 6px;
 `;
 
-interface IOwnProps {
+interface OwnProps {
   id: string;
 }
 
-interface IConnectedStore {
+interface ConnectedStore {
   inFavorites: boolean;
 }
 
-interface IConnectedActions {
+interface ConnectedActions {
   add?(id: string): void;
   del?(id: string): void;
 }
 
-type Props = IOwnProps & IConnectedStore & IConnectedActions;
+type Props = OwnProps & ConnectedStore & ConnectedActions;
 
 const AddToFavorites = ({ add, del, id, inFavorites }: Props) => {
   const client = useAvoidHydrate();
@@ -65,7 +65,7 @@ const AddToFavorites = ({ add, del, id, inFavorites }: Props) => {
   );
 };
 
-const selector = createStructuredSelector<IStore, IOwnProps, IConnectedStore>({
+const selector = createStructuredSelector<Store, OwnProps, ConnectedStore>({
   inFavorites: selectors.inFavorites,
 });
 
@@ -74,7 +74,7 @@ const action = {
   del: actions.deleteFromFavorites,
 };
 
-const enhance = connect<IOwnProps, {}, IStore, IConnectedStore>(
+const enhance = connect<OwnProps, {}, Store, ConnectedStore>(
   selector,
   action,
 );

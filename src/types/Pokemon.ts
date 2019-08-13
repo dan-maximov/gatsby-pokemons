@@ -1,25 +1,25 @@
-export interface IAttack {
+export interface Attack {
   name: string;
   type: string;
   damage: number;
 }
 
-export interface IAttacks {
-  fast: IAttack[];
-  special: IAttack[];
+export interface Attacks {
+  fast: Attack[];
+  special: Attack[];
 }
 
-export interface IEvolutionRequirements {
+export interface EvolutionRequirements {
   name: string;
   amount: number;
 }
 
-export interface IRange {
+export interface Range {
   minimum: string;
   maximum: string;
 }
 
-export interface IPokemon {
+export interface Pokemon {
   id: string;
   name: string;
   number: string;
@@ -30,9 +30,9 @@ export interface IPokemon {
   fleeRate: number;
   maxCP: number;
   maxHP: number;
-  height: IRange;
-  weight: IRange;
-  attacks: IAttacks;
-  evolutionRequirements: IEvolutionRequirements;
-  evolutions: IPokemon[];
+  height: Range;
+  weight: Range;
+  attacks: Attacks;
+  evolutionRequirements: EvolutionRequirements;
+  evolutions: Pokemon[];
 }

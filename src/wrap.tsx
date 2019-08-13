@@ -3,7 +3,7 @@ import { Normalize } from 'styled-normalize';
 import { Provider } from 'unistore/react';
 import { createGlobalStyle } from 'styled-components';
 import Layout from 'components/Layout';
-import { createStore } from 'store/index';
+import { createStore } from 'store';
 
 const GlobalStyle = createGlobalStyle`
   h1,h2,p {
@@ -25,8 +25,13 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const wrapPageElement = ({ element, props }: any) => <Layout {...props}>{element}</Layout>;
-export const wrapRootElement = ({ element }: any) => (
+interface Props {
+  element: React.ReactNode;
+  props: any;
+}
+
+export const wrapPageElement: React.FC = ({ element, props }) => <Layout {...props}>{element}</Layout>;
+export const wrapRootElement: React.FC = ({ element }) => (
   <>
     <Normalize />
     <GlobalStyle />

@@ -1,13 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { damageDiff } from 'utils/format';
-import { IAttacks } from 'types/Pokemon';
+import { Attacks } from 'types/Pokemon';
 
-interface IProps {
-  attacks: IAttacks;
+interface Props {
+  attacks: Attacks;
 }
 
-const DamageDifference = ({ attacks }: IProps) => <span>{damageDiff(attacks)}</span>;
+const DamageDifference: React.FC<Props> = ({ attacks }) => <span>{damageDiff(attacks)}</span>;
 
 export const query = graphql`
   fragment AttacksDifference on PokeAPI_Pokemon {

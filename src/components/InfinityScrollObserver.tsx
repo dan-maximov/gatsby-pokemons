@@ -1,15 +1,14 @@
-/* global document IntersectionObserver */
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-interface IProps {
+interface Props {
   max: number;
   current: number;
   increaseQuantity: number;
   increaseFunc(n: number): void;
 }
 
-const InfinityScrollObserver = ({ max, current, increaseQuantity, increaseFunc }: IProps) => {
+const InfinityScrollObserver: React.FC<Props> = ({ max, current, increaseQuantity, increaseFunc }) => {
   const observer = useRef<IntersectionObserver | null>(null);
   const el = useRef<HTMLDivElement>(null);
 

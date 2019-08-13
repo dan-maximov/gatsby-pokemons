@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PokemonCard from 'components/PokemonCard';
-import { IPokemon } from 'types/Pokemon';
+import { Pokemon } from 'types/Pokemon';
 
 const Title = styled.p`
   font-size: 24px;
@@ -31,11 +31,11 @@ const LastGenMsg = styled.p`
   padding: 16px;
 `;
 
-interface IProps {
-  evolutions: IPokemon[];
+interface Props {
+  evolutions: Pokemon[];
 }
 
-const EvolutionsList = ({ evolutions }: IProps) => {
+const EvolutionsList: React.FC<Props> = ({ evolutions }) => {
   if (!evolutions || evolutions.length === 0) {
     return (
       <>

@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 type MetaProps = JSX.IntrinsicElements['meta'];
 
-interface IProps {
+interface Props {
   description?: string;
   lang?: string;
   meta?: MetaProps[];
@@ -12,7 +12,7 @@ interface IProps {
   image?: string;
 }
 
-const SEO = ({ description, lang = 'en', meta = [], title, image }: IProps) => {
+const SEO: React.FC<Props> = ({ description, lang = 'en', meta = [], title, image }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
