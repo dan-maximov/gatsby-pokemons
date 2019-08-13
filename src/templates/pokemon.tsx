@@ -35,8 +35,10 @@ const ImageWrapper = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
   height: auto;
+  width: auto;
 `;
 
 const Details = styled.div`
