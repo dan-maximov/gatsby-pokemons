@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 module.exports = {
   siteMetadata: {
     title: 'PokeList',
@@ -26,5 +28,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-styled-components',
+    'gatsby-plugin-typescript',
   ],
 };

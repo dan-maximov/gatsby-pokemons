@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    //required
+    "baseUrl": "src",
+    "module": "commonjs",
+    "target": "esnext",
+    "jsx": "preserve",
+    "lib": ["dom", "esnext"],
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": false,
+    //required
+    "moduleResolution": "node",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+  },
+  "exclude": ["node_modules", "public", ".cache"],
+}

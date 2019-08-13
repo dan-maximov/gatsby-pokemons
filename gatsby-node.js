@@ -16,10 +16,18 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.pokeApi.pokemons.forEach(({ id }) => {
     actions.createPage({
       path: id,
-      component: path.resolve('./src/templates/pokemon.js'),
+      component: path.resolve('./src/templates/pokemon.tsx'),
       context: {
         slug: id,
       },
     });
+  });
+};
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
   });
 };
