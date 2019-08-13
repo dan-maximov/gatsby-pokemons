@@ -8,14 +8,6 @@ const Title = styled.p`
   color: #9e9e9e;
 `;
 
-const Wrapper = styled.tr`
-  margin: 8px 0;
-`;
-
-const Row = styled.div`
-  display: flex;
-`;
-
 const Cell = styled.td`
   min-width: ${CELL_WIDTH}px;
   max-width: ${CELL_WIDTH}px;
@@ -32,14 +24,18 @@ interface Props {
 }
 
 const Stat: React.FC<Props> = ({ title, stats, objKey }) => (
-  <Wrapper>
-    <Title>{title}</Title>
-    <Row>
+  <>
+    <tr>
+      <td>
+        <Title>{title}</Title>
+      </td>
+    </tr>
+    <tr>
       {stats.map(p => (
         <Cell key={`${p[objKey]}${p.name}`}>{p[objKey]}</Cell>
       ))}
-    </Row>
-  </Wrapper>
+    </tr>
+  </>
 );
 
 export default Stat;
