@@ -113,7 +113,7 @@ const Compares: React.FC<Props> = ({ compare }) => {
         <Head>
           <tr>
             {pokemons.map(p => (
-              <td>
+              <td key={p.id}>
                 <HeadCard key={p.name} to={`/${p.id}`}>
                   <div>
                     <Image src={p.image} alt={p.name} />

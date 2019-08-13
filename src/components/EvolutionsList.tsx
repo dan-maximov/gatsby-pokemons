@@ -48,7 +48,7 @@ const EvolutionsList: React.FC<Props> = ({ evolutions }) => {
   return (
     <>
       <Title>Evolutions</Title>
-      <List>{evolutions && evolutions.map(p => <PokeCard data={p} />)}</List>
+      <List>{evolutions && evolutions.map(p => <PokeCard data={p} key={p.id} />)}</List>
     </>
   );
 };
