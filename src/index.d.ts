@@ -5,3 +5,10 @@ declare module 'react' {
     css?: CSSProp;
   }
 }
+
+declare global {
+  interface Window {
+    __listScrolled__: number;
+    __imagesSeen__: string[];
+  }
+}

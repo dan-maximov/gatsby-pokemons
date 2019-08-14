@@ -21,12 +21,6 @@ const Inner = styled.div`
 
 const placeholdersArray = new Array(4).fill(undefined).map((_, i) => i + 1234);
 
-interface CustomWindow extends Window {
-  __listScrolled__: number;
-}
-
-declare const window: CustomWindow;
-
 interface Props {
   pokemons: Pokemon[];
   EmptyState?: React.FC;
