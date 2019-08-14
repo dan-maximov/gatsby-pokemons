@@ -122,7 +122,7 @@ const LazyImage: React.FC<Props> = ({ src, alt, ...props }) => {
       onLoad={handleLoaded}
       ref={image}
       alt={alt}
-      src={getStatus(src) === ImageState.ready ? src : undefined}
+      src={loaded === ImageState.ready || loaded === ImageState.loaded ? src : undefined}
       {...props}
     />
   );
