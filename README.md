@@ -19,5 +19,5 @@ Actually, there is a [source](https://github.com/lucasbento/graphql-pokemon) of 
 [netlify]: https://app.netlify.com/sites/pokemonlist/deploys
 [build-badge]: https://raster.shields.io/travis/meatspincom/gatsby-pokemons/master.png?style=flat-square
 [build]: https://travis-ci.org/meatspincom/gatsby-pokemons
-[coveralls-badge]: https://img.shields.io/coveralls/meatspincom/gatsby-pokemons/master.png?style=flat-square
+[coveralls-badge]: https://coveralls.io/repos/github/meatspincom/gatsby-pokemons/badge.svg?branch=master
 [coveralls]: https://coveralls.io/github/meatspincom/gatsby-pokemons
