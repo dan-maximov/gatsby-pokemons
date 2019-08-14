@@ -2,9 +2,9 @@ import React, { useRef, useEffect, useReducer } from 'react';
 import styled, { css } from 'styled-components';
 
 enum ImageState {
-  ready,
   loading,
   loaded,
+  ready,
 }
 
 const instaShowStyle = css`
@@ -69,6 +69,9 @@ const getStatus = (src: string) => {
 
 const LazyImage: React.FC<Props> = ({ src, alt, ...props }) => {
   const [loaded, handleLoaded] = useReducer(reducerFunction(src), getStatus(src));
+
+  // debug, will be deleted before merging
+  console.log(loaded, alt);
 
   const image = useRef<HTMLImageElement>(null);
   const observer = useRef<IntersectionObserver | null>(null);
