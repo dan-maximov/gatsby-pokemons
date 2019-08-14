@@ -2,9 +2,9 @@ import React, { useRef, useEffect, useReducer } from 'react';
 import styled, { css } from 'styled-components';
 
 enum ImageState {
-  ready,
   loading,
   loaded,
+  ready,
 }
 
 const instaShowStyle = css`
@@ -89,15 +89,12 @@ const LazyImage: React.FC<Props> = ({ src, alt, ...props }) => {
       entries.forEach(
         ({ isIntersecting }) => {
           if (isIntersecting) {
-            if (document.readyState === 'complete') {
-              setSrc();
-            } else {
-              document.addEventListener('load', setSrc);
-            }
+            setSrc();
 
             if (observer.current) {
               observer.current.disconnect();
             }
+
             observer.current = null;
           }
         },
