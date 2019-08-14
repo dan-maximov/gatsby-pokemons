@@ -70,9 +70,6 @@ const getStatus = (src: string) => {
 const LazyImage: React.FC<Props> = ({ src, alt, ...props }) => {
   const [loaded, handleLoaded] = useReducer(reducerFunction(src), getStatus(src));
 
-  // debug, will be deleted before merging
-  console.log(loaded, alt);
-
   const image = useRef<HTMLImageElement>(null);
   const observer = useRef<IntersectionObserver | null>(null);
 
@@ -92,15 +89,12 @@ const LazyImage: React.FC<Props> = ({ src, alt, ...props }) => {
       entries.forEach(
         ({ isIntersecting }) => {
           if (isIntersecting) {
-            if (document.readyState === 'complete') {
-              setSrc();
-            } else {
-              document.addEventListener('load', setSrc);
-            }
+            setSrc();
 
             if (observer.current) {
               observer.current.disconnect();
             }
+
             observer.current = null;
           }
         },
