@@ -60,7 +60,7 @@ const reducerFunction = (src: string) => () => {
 };
 
 const getStatus = (src: string) => {
-  if (window && Array.isArray(window.__imagesSeen__) && window.__imagesSeen__.includes(src)) {
+  if (typeof window !== 'undefined' && Array.isArray(window.__imagesSeen__) && window.__imagesSeen__.includes(src)) {
     return ImageState.ready;
   }
 
