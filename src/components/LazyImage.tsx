@@ -74,13 +74,14 @@ const LazyImage: React.FC<Props> = ({ src, alt, ...props }) => {
   const observer = useRef<IntersectionObserver | null>(null);
 
   const setSrc = () => {
-    if (image.current && !image.current.src) {
+    if (image.current) {
       image.current.src = src;
     }
   };
 
   useEffect(() => {
     if (loaded === ImageState.ready) {
+      setSrc();
       return () => undefined;
     }
 
@@ -116,16 +117,7 @@ const LazyImage: React.FC<Props> = ({ src, alt, ...props }) => {
     };
   }, []);
 
-  return (
-    <Image
-      loadedState={loaded}
-      onLoad={handleLoaded}
-      ref={image}
-      alt={alt}
-      src={loaded === ImageState.ready || loaded === ImageState.loaded ? src : undefined}
-      {...props}
-    />
-  );
+  return <Image loadedState={loaded} onLoad={handleLoaded} ref={image} alt={alt} {...props} />;
 };
 
 export default LazyImage;
