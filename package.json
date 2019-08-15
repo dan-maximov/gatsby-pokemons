@@ -68,7 +68,7 @@
     "build": "gatsby build",
     "dev": "cross-env LIMITED=1 gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
+    "start": "gatsby develop",
     "serve": "gatsby serve",
     "test": "jest",
     "test:ci": "jest --collect-coverage --coverageReporters=text-lcov | coveralls",
