@@ -8,8 +8,11 @@ enum ImageState {
 }
 
 const instaShowStyle = css`
-  opacity: 1;
-  transition: unset;
+  transition: 0s;
+  opacity: 0;
+  &[src] {
+    opacity: 1 !important;
+  }
 `;
 
 const unloadedStyle = css`
@@ -19,6 +22,7 @@ const unloadedStyle = css`
 `;
 
 const loadedStyle = css`
+  transition: 0.3s opacity linear;
   opacity: 1;
 `;
 
@@ -38,7 +42,6 @@ const getImageStyle = ({ loadedState }: ImageProps) => {
 };
 
 const Image = styled.img<ImageProps>`
-  transition: 0.3s opacity linear;
   ${getImageStyle}
 `;
 
@@ -114,7 +117,9 @@ const LazyImage: React.FC<Props> = ({ src, alt, ...props }) => {
     };
   }, []);
 
-  return <Image loadedState={loaded} onLoad={handleLoaded} ref={image} alt={alt} {...props} />;
+  const onLoad = loaded === ImageState.ready ? undefined : handleLoaded;
+
+  return <Image loadedState={loaded} onLoad={onLoad} ref={image} alt={alt} {...props} />;
 };
 
 export default LazyImage;
