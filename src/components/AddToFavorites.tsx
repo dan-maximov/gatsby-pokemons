@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { FaRegHeart, FaHeart } from 'react-icons/fa';
 
 import { connect } from 'unistore/react';
@@ -7,30 +6,8 @@ import { createStructuredSelector } from 'reselect';
 import { actions, selectors } from '../store';
 import useAvoidHydrate from '../hooks/useAvoidHydrate';
 import { Store } from 'types/Store';
-
-const Wrapper = styled.div`
-  display: flex;
-  width: 128px;
-  height: 18px;
-  align-items: center;
-  padding: 2px 6px;
-  padding-left: 0;
-
-  cursor: pointer;
-`;
-
-const Placeholder = styled.div`
-  width: 128px;
-  height: 18px;
-  padding: 2px 6px;
-  padding-left: 0;
-
-  cursor: pointer;
-`;
-
-const Text = styled.span`
-  margin-left: 6px;
-`;
+import Placeholder from './AddTo.placheholder';
+import { Text, Wrapper } from './AddTo.styles';
 
 interface OwnProps {
   id: string;
@@ -51,7 +28,7 @@ const AddToFavorites = ({ add, del, id, inFavorites }: Props) => {
   const client = useAvoidHydrate();
 
   if (!client) {
-    return <Placeholder />;
+    return <Placeholder text="Add to favorites" />;
   }
 
   const text = inFavorites ? 'In favorites' : 'Add to favorites';
