@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { FaToggleOff, FaToggleOn } from 'react-icons/fa';
 
 import { connect } from 'unistore/react';
@@ -7,26 +6,8 @@ import { createStructuredSelector } from 'reselect';
 import { actions, selectors } from 'store';
 import useAvoidHydrate from 'hooks/useAvoidHydrate';
 import { Store } from 'types/Store';
-
-const Wrapper = styled.div`
-  display: flex;
-  height: 18px;
-  align-items: center;
-  padding: 2px 6px;
-
-  cursor: pointer;
-`;
-
-const Placeholder = styled.div`
-  height: 18px;
-  padding: 2px 6px;
-
-  cursor: pointer;
-`;
-
-const Text = styled.span`
-  margin-left: 6px;
-`;
+import Placeholder from './AddTo.placheholder';
+import { Wrapper, Text } from './AddTo.styles';
 
 interface OwnProps {
   id: string;
@@ -47,7 +28,7 @@ const AddToCompares = ({ add, del, id, inCompares }: Props) => {
   const client = useAvoidHydrate();
 
   if (!client) {
-    return <Placeholder />;
+    return <Placeholder text="Add to Compares" />;
   }
 
   const text = inCompares ? 'In Compares' : 'Add to Compares';
