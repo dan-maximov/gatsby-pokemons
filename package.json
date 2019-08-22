@@ -77,10 +77,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/meatspincom/gatsby-pokemons"
+    "url": "https://github.com/dan-maximov/gatsby-pokemons"
   },
   "bugs": {
-    "url": "https://github.com/meatspincom/gatsby-pokemons/issues"
+    "url": "https://github.com/dan-maximov/gatsby-pokemons/issues"
   },
   "husky": {
     "hooks": {
