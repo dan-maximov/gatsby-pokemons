@@ -44,12 +44,12 @@ const Footer = () => (
       <IconLink href="https://twitter.com/MaximovDanila" target="_blank" rel="noopener noreferrer">
         <FaTwitter css={icon} />
       </IconLink>
-      <IconLink href="https://github.com/meatspincom" target="_blank" rel="noopener noreferrer">
+      <IconLink href="https://github.com/dan-maximov" target="_blank" rel="noopener noreferrer">
         <FaGithub css={icon} />
       </IconLink>
       <CurrentYear>{`© ${new Date().getFullYear()}, `}</CurrentYear>
-      <Link href="https://github.com/meatspincom/gatsby-pokemons" target="_blank" rel="noopener noreferrer">
-        meatspincom
+      <Link href="https://github.com/dan-maximov/gatsby-pokemons" target="_blank" rel="noopener noreferrer">
+        dan-maximov
       </Link>
     </Inner>
   </Wrapper>

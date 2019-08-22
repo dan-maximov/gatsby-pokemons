@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'PokeList',
     description: 'Pokemons list built with gatsby and graphql-pokemon endpoint',
-    author: '@meatspincom',
+    author: '@MaximovDanila',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
