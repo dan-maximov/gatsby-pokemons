@@ -17,7 +17,7 @@ Actually, there is a [source](https://github.com/lucasbento/graphql-pokemon) of 
 [pr]: https://github.com/dan-maximov/gatsby-pokemons/pulls
 [netlify-badge]: https://api.netlify.com/api/v1/badges/30d7454e-ebf6-48ac-90bc-d8fe1596844c/deploy-status
 [netlify]: https://app.netlify.com/sites/pokemonlist/deploys
-[build-badge]: https://raster.shields.io/travis/dan-maximov/gatsby-pokemons/master.png?style=flat-square
+[build-badge]: https://travis-ci.org/dan-maximov/gatsby-pokemons.svg?branch=master
 [build]: https://travis-ci.org/dan-maximov/gatsby-pokemons
 [coveralls-badge]: https://coveralls.io/repos/github/dan-maximov/gatsby-pokemons/badge.svg?branch=master
 [coveralls]: https://coveralls.io/github/dan-maximov/gatsby-pokemons
