@@ -39,7 +39,7 @@
     "babel-preset-gatsby": "0.2.20",
     "coveralls": "3.0.7",
     "cross-env": "6.0.3",
-    "eslint": "6.5.1",
+    "eslint": "6.6.0",
     "eslint-config-airbnb": "18.0.1",
     "eslint-config-prettier": "6.4.0",
     "eslint-import-resolver-alias": "1.1.2",
