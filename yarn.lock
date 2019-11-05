@@ -12473,10 +12473,10 @@ unique-string@^2.0.0:
   dependencies:
     crypto-random-string "^2.0.0"
 
-unistore@3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/unistore/-/unistore-3.5.0.tgz#f4b962e290fc85969627bf0e8209d8bc1cf5313d"
-  integrity sha512-jz1iBRHoA3lT5bq8eEFCZExCt0RbIBp8qsKOb0sMTv8ooCx8H4QE1nfynOJtbgJ651y768KO/5Z180Bn196erQ==
+unistore@3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/unistore/-/unistore-3.5.1.tgz#2ce7e17524f8e1390adaf59a88abdeb39e455333"
+  integrity sha512-lagQJ5SeDssjh9tYVwOlPloDCLpn0lvHkvOpf+X4q4thnMJ3uLJcT6YO9cuww8K9qsJOyUWKufdfIF3qUe/9ow==
 
 universalify@^0.1.0:
   version "0.1.2"
