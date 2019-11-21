@@ -37,7 +37,7 @@
     "babel-jest": "24.9.0",
     "babel-plugin-styled-components": "1.10.6",
     "babel-preset-gatsby": "0.2.22",
-    "coveralls": "3.0.7",
+    "coveralls": "3.0.8",
     "cross-env": "6.0.3",
     "eslint": "6.6.0",
     "eslint-config-airbnb": "18.0.1",
