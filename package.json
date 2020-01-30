@@ -20,7 +20,7 @@
     "react-icons": "3.9.0",
     "reselect": "4.0.0",
     "styled-components": "4.4.1",
-    "styled-normalize": "8.0.6",
+    "styled-normalize": "8.0.7",
     "tiny-cookie": "2.3.1",
     "unistore": "3.5.1"
   },
