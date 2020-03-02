@@ -5,11 +5,11 @@
   "version": "0.1.0",
   "author": "Danila Maximov <mr.quze@gmail.com>",
   "dependencies": {
-    "gatsby": "2.19.23",
+    "gatsby": "2.19.24",
     "gatsby-plugin-manifest": "2.2.42",
     "gatsby-plugin-react-helmet": "3.1.22",
     "gatsby-plugin-styled-components": "3.1.19",
-    "gatsby-plugin-typescript": "2.1.27",
+    "gatsby-plugin-typescript": "2.2.0",
     "gatsby-source-filesystem": "2.1.48",
     "gatsby-source-graphql": "2.1.33",
     "intersection-observer": "0.7.0",
