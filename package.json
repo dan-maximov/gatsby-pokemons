@@ -19,7 +19,7 @@
     "react-helmet": "5.2.1",
     "react-icons": "3.9.0",
     "reselect": "4.0.0",
-    "styled-components": "4.4.1",
+    "styled-components": "5.0.1",
     "styled-normalize": "8.0.7",
     "tiny-cookie": "2.3.2",
     "unistore": "3.5.1"
@@ -30,7 +30,7 @@
     "@types/react": "16.9.25",
     "@types/react-dom": "16.9.5",
     "@types/react-helmet": "5.0.15",
-    "@types/styled-components": "4.4.3",
+    "@types/styled-components": "5.0.1",
     "@typescript-eslint/eslint-plugin": "2.24.0",
     "@typescript-eslint/parser": "2.24.0",
     "babel-eslint": "10.1.0",
